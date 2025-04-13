@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python Learning App - Functions</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/pyodide/v0.23.4/full/pyodide.js"></script>
+    <script src="js/app.js"></script>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <h1>Python<span>Learn</span></h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Dashboard</a></li>
+                    <li><a href="python-variables.html" class="active">Python Basics</a></li>
+                    <li><a href="pandas-intro.html">Pandas</a></li>
+                    <li><a href="numpy-intro.html">NumPy</a></li>
+                    <li><a href="matplotlib-intro.html">Matplotlib</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="dashboard">
+            <aside class="sidebar">
+                <div class="progress-container">
+                    <h2>Your Progress</h2>
+                    <div class="progress-stats">
+                        <span>37.5% Complete</span>
+                        <span>3/8 Lessons</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="--progress-percent: 37.5%"></div>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="progressChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="topics-container">
+                    <h2>Learning Path</h2>
+                    <ul class="topics-list">
+                        <li class="topic-item">
+                            <a href="index.html" style="text-decoration: none; color: inherit; display: block; width: 100%;">
+                                <span>Introduction to Python</span>
+                                <span class="status completed">Completed</span>
+                            </a>
+                        </li>
+                        <li class="topic-item">
+                            <a href="python-variables.html" style="text-decoration: none; color: inherit; display: block; width: 100%;">
+                                <span>Variables & Data Types</span>
+                                <span class="status completed">Completed</span>
+                            </a>
+                        </li>
+                        <li class="topic-item">
+                            <a href="python-control-flow.html" style="text-decoration: none; color: inherit; display: block; width: 100%;">
+                                <span>Control Flow</span>
+                                <span class="status completed">Completed</span>
+                            </a>
+                        </li>
+                        <li class="topic-item active">
+                            <a href="python-functions.html" style="text-decoration: none; color: inherit; display: block; width: 100%;">
+                                <span>Functions</span>
+                                <span class="status available">Available</span>
+                            </a>
+                        </li>
+                        <li class="topic-item">
+                            <a href="python-data-structures.html" style="text-decoration: none; color: inherit; display: block; width: 100%;">
+                                <span>Data Structures</span>
+                                <span class="status available">Available</span>
+                            </a>
+                        </li>
+                        <li class="topic-item">
+                            <a href="pandas-intro.html" style="text-decoration: none; color: inherit; display: block; width: 100%;">
+                                <span>Introduction to Pandas</span>
+                                <span class="status available">Available</span>
+                            </a>
+                        </li>
+                        <li class="topic-item">
+                            <a href="numpy-intro.html" style="text-decoration: none; color: inherit; display: block; width: 100%;">
+                                <span>Introduction to NumPy</span>
+                                <span class="status available">Available</span>
+                            </a>
+                        </li>
+                        <li class="topic-item">
+                            <a href="matplotlib-intro.html" style="text-decoration: none; color: inherit; display: block; width: 100%;">
+                                <span>Introduction to Matplotlib</span>
+                                <span class="status available">Available</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </aside>
+
+            <section class="content-area">
+                <div class="content-header">
+                    <h2>Functions</h2>
+                    <div class="breadcrumb">Python Basics > Functions</div>
+                </div>
+
+                <div class="lesson-content">
+                    <p>Functions are reusable blocks of code that perform a specific task. They help organize your code, make it more readable, and reduce repetition. In this lesson, we'll learn how to define and use functions in Python.</p>
+                    
+                    <h3>Defining Functions</h3>
+                    <p>In Python, you define a function using the <code>def</code> keyword, followed by the function name, parentheses, and a colon. The function body is indented:</p>
+                    <pre><code>def greet():
+    print("Hello, World!")
+
+# Call the function
+greet()  # Outputs: Hello, World!</code></pre>
+                    
+                    <h3>Function Parameters</h3>
+                    <p>Functions can accept parameters, which are values passed to the function when it's called:</p>
+                    <pre><code>def greet(name):
+    print(f"Hello, {name}!")
+
+# Call the function with an argument
+greet("Alice")  # Outputs: Hello, Alice!</code></pre>
+                    
+                    <h4>Multiple Parameters</h4>
+                    <pre><code>def greet(name, age):
+    print(f"Hello, {name}! You are {age} years old.")
+
+# Call the function with multiple arguments
+greet("Alice", 30)  # Outputs: Hello, Alice! You are 30 years old.</code></pre>
+                    
+                    <h4>Default Parameter Values</h4>
+                    <p>You can specify default values for parameters, which are used if the caller doesn't provide a value:</p>
+                    <pre><code>def greet(name, greeting="Hello"):
+    print(f"{greeting}, {name}!")
+
+# Call the function with and without the optional argument
+greet("Alice")  # Outputs: Hello, Alice!
+greet("Bob", "Hi")  # Outputs: Hi, Bob!</code></pre>
+                    
+                    <h4>Keyword Arguments</h4>
+                    <p>You can specify arguments by parameter name, which allows you to provide them in any order:</p>
+                    <pre><code>def greet(name, age):
+    print(f"Hello, {name}! You are {age} years old.")
+
+# Call the function with keyword arguments
+greet(age=30, name="Alice")  # Outputs: Hello, Alice! You are 30 years old.</code></pre>
+                    
+                    <h4>Variable-Length Arguments (*args)</h4>
+                    <p>You can define a function that accepts a variable number of positional arguments using the <code>*args</code> syntax:</p>
+                    <pre><code>def sum_all(*numbers):
+    total = 0
+    for num in numbers:
+        total += num
+    return total
+
+# Call the function with different numbers of arguments
+result1 = sum_all(1, 2, 3)  # 6
+result2 = sum_all(1, 2, 3, 4, 5)  # 15
+print(result1, result2)</code></pre>
+                    
+                    <h4>Variable-Length Keyword Arguments (**kwargs)</h4>
+                    <p>You can define a function that accepts a variable number of keyword arguments using the <code>**kwargs</code> syntax:</p>
+                    <pre><code>def print_info(**info):
+    for key, value in info.items():
+        print(f"{key}: {value}")
+
+# Call the function with different keyword arguments
+print_info(name="Alice", age=30, city="New York")
+# Outputs:
+# name: Alice
+# age: 30
+# city: New York</code></pre>
+                    
+                    <h3>Return Values</h3>
+                    <p>Functions can return values using the <code>return</code> statement:</p>
+                    <pre><code>def add(a, b):
+    return a + b
+
+# Call the function and store the result
+result = add(3, 5)
+print(result)  # Outputs: 8</code></pre>
+                    
+                    <h4>Multiple Return Values</h4>
+                    <p>Functions can return multiple values as a tuple:</p>
+                    <pre><code>def get_min_max(numbers):
+    return min(numbers), max(numbers)
+
+# Call the function and unpack the returned tuple
+minimum, maximum = get_min_max([5, 3, 8, 1, 7])
+print(f"Minimum: {minimum}, Maximum: {maximum}")
+# Outputs: Minimum: 1, Maximum: 8</code></pre>
+                    
+                    <h3>Function Scope</h3>
+                    <p>Variables defined inside a function have local scope and are only accessible within that function:</p>
+                    <pre><code>def my_function():
+    x = 10  # Local variable
+    print(x)
+
+my_function()  # Outputs: 10
+# print(x)  # This would cause an error because x is not defined in this scope</code></pre>
+                    
+                    <h4>Global Variables</h4>
+                    <p>You can access global variables from within a function:</p>
+                    <pre><code>x = 10  # Global variable
+
+def my_function():
+    print(x)  # Accessing global variable
+
+my_function()  # Outputs: 10</code></pre>
+                    
+                    <h4>Modifying Global Variables</h4>
+                    <p>To modify a global variable from within a function, you need to use the <code>global</code> keyword:</p>
+                    <pre><code>x = 10  # Global variable
+
+def modify_global():
+    global x
+    x = 20  # Modifying global variable
+
+print(x)  # Outputs: 10
+modify_global()
+print(x)  # Outputs: 20</code></pre>
+                    
+                    <h3>Lambda Functions</h3>
+                    <p>Lambda functions are small, anonymous functions defined using the <code>lambda</code> keyword:</p>
+                    <pre><code># Regular function
+def add(a, b):
+    return a + b
+
+# Equivalent lambda function
+add_lambda = lambda a, b: a + b
+
+print(add(3, 5))       # Outputs: 8
+print(add_lambda(3, 5))  # Outputs: 8</code></pre>
+                    
+                    <p>Lambda functions are often used with functions like <code>map()</code>, <code>filter()</code>, and <code>sorted()</code>:</p>
+                    <pre><code># Using lambda with map()
+numbers = [1, 2, 3, 4, 5]
+squared = list(map(lambda x: x**2, numbers))
+print(squared)  # Outputs: [1, 4, 9, 16, 25]
+
+# Using lambda with filter()
+even_numbers = list(filter(lambda x: x % 2 == 0, numbers))
+print(even_numbers)  # Outputs: [2, 4]
+
+# Using lambda with sorted()
+students = [
+    {"name": "Alice", "grade": 85},
+    {"name": "Bob", "grade": 92},
+    {"name": "Charlie", "grade": 78}
+]
+sorted_students = sorted(students, key=lambda student: student["grade"], reverse=True)
+for student in sorted_students:
+    print(f"{student['name']}: {student['grade']}")</code></pre>
+                    
+                    <h3>Recursion</h3>
+                    <p>Recursion is when a function calls itself. It's useful for solving problems that can be broken down into smaller, similar subproblems:</p>
+                    <pre><code>def factorial(n):
+    if n == 0 or n == 1:
+        return 1
+    else:
+        return n * factorial(n - 1)
+
+print(factorial(5))  # Outputs: 120 (5 * 4 * 3 * 2 * 1)</code></pre>
+                    
+                    <h3>Decorators</h3>
+                    <p>Decorators are functions that modify the behavior of other functions. They are a powerful feature in Python:</p>
+                    <pre><code>def my_decorator(func):
+    def wrapper():
+        print("Something is happening before the function is called.")
+        func()
+        print("Something is happening after the function is called.")
+    return wrapper
+
+@my_decorator
+def say_hello():
+    print("Hello!")
+
+say_hello()
+# Outputs:
+# Something is happening before the function is called.
+# Hello!
+# Something is happening after the function is called.</code></pre>
+                    
+                    <h3>Generators</h3>
+                    <p>Generators are functions that can pause and resume their execution. They use the <code>yield</code> keyword instead of <code>return</code>:</p>
+                    <pre><code>def count_up_to(n):
+    i = 1
+    while i <= n:
+        yield i
+        i += 1
+
+# Using the generator
+counter = count_up_to(5)
+for num in counter:
+    print(num)
+# Outputs:
+# 1
+# 2
+# 3
+# 4
+# 5</code></pre>
+                    
+                    <h3>Built-in Functions</h3>
+                    <p>Python provides many built-in functions that you can use without importing any modules:</p>
+                    <pre><code># len() - Returns the length of an object
+print(len("Hello"))  # Outputs: 5
+
+# max() and min() - Return the maximum and minimum values
+print(max(5, 10, 3))  # Outputs: 10
+print(min(5, 10, 3))  # Outputs: 3
+
+# sum() - Returns the sum of all items in an iterable
+print(sum([1, 2, 3, 4, 5]))  # Outputs: 15
+
+# sorted() - Returns a sorted list
+print(sorted([3, 1, 4, 1, 5, 9, 2]))  # Outputs: [1, 1, 2, 3, 4, 5, 9]
+
+# enumerate() - Returns an enumerate object
+for i, value in enumerate(["a", "b", "c"]):
+    print(i, value)
+# Outputs:
+# 0 a
+# 1 b
+# 2 c
+
+# zip() - Returns an iterator of tuples
+for item in zip([1, 2, 3], ["a", "b", "c"]):
+    print(item)
+# Outputs:
+# (1, 'a')
+# (2, 'b')
+# (3, 'c')</code></pre>
+                    
+                    <p>Try experimenting with functions in the code playground below!</p>
+                </div>
+
+                <div class="quiz-container">
+                    <h3>Quick Quiz</h3>
+                    <div class="quiz-question">
+                        <p>What keyword is used to define a function in Python?</p>
+                        <div class="quiz-options">
+                            <div class="quiz-option-wrapper">
+                                <button class="quiz-option-button" onclick="this.classList.add('selected', 'incorrect'); document.getElementById('quiz-feedback').innerHTML = 'Incorrect. The function keyword is used in JavaScript, not Python.'; document.getElementById('quiz-feedback').className = 'quiz-feedback incorrect'; document.getElementById('quiz-next').disabled = false;">function</button>
+                            </div>
+                            <div class="quiz-option-wrapper">
+                                <button class="quiz-option-button" onclick="this.classList.add('selected', 'correct'); document.getElementById('quiz-feedback').innerHTML = 'Correct! The def keyword is used to define a function in Python.'; document.getElementById('quiz-feedback').className = 'quiz-feedback correct'; document.getElementById('quiz-next').disabled = false;">def</button>
+                            </div>
+                            <div class="quiz-option-wrapper">
+                                <button class="quiz-option-button" onclick="this.classList.add('selected', 'incorrect'); document.getElementById('quiz-feedback').innerHTML = 'Incorrect. The func keyword does not exist in Python.'; document.getElementById('quiz-feedback').className = 'quiz-feedback incorrect'; document.getElementById('quiz-next').disabled = false;">func</button>
+                            </div>
+                            <div class="quiz-option-wrapper">
+                                <button class="quiz-option-button" onclick="this.classList.add('selected', 'incorrect'); document.getElementById('quiz-feedback').innerHTML = 'Incorrect. The define keyword does not exist in Python.'; document.getElementById('quiz-feedback').className = 'quiz-feedback incorrect'; document.getElementById('quiz-next').disabled = false;">define</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="quiz-feedback" class="quiz-feedback"></div>
+                    <div class="quiz-controls">
+                        <a href="python-data-structures.html" class="btn btn-primary" id="quiz-next" disabled>Next Lesson</a>
+                    </div>
+                </div>
+
+                <div class="code-playground">
+                    <div class="code-header">
+                        <h3>Code Playground</h3>
+                        <div class="code-controls">
+                            <button class="btn btn-secondary" id="reset-code">Reset</button>
+                            <button class="btn btn-primary" id="run-code">Run Code</button>
+                        </div>
+                    </div>
+                    <textarea class="code-editor" id="code-editor"></textarea>
+                    <div class="code-output" id="code-output">
+                        <p class="output-placeholder">Code output will appear here...</p>
+                    </div>
+                </div>
+
+                <div class="navigation-controls">
+                    <a href="python-control-flow.html" class="btn btn-secondary">Previous Lesson</a>
+                    <a href="python-data-structures.html" class="btn btn-primary">Next Lesson</a>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 PythonLearn. Created for educational purposes.</p>
+        </div>
+    </footer>
+</body>
+</html>

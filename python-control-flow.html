@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python Learning App - Control Flow</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/pyodide/v0.23.4/full/pyodide.js"></script>
+    <script src="js/app.js"></script>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <h1>Python<span>Learn</span></h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Dashboard</a></li>
+                    <li><a href="python-variables.html" class="active">Python Basics</a></li>
+                    <li><a href="pandas-intro.html">Pandas</a></li>
+                    <li><a href="numpy-intro.html">NumPy</a></li>
+                    <li><a href="matplotlib-intro.html">Matplotlib</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="dashboard">
+            <aside class="sidebar">
+                <div class="progress-container">
+                    <h2>Your Progress</h2>
+                    <div class="progress-stats">
+                        <span>25% Complete</span>
+                        <span>2/8 Lessons</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="--progress-percent: 25%"></div>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="progressChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="topics-container">
+                    <h2>Learning Path</h2>
+                    <ul class="topics-list">
+                        <li class="topic-item">
+                            <a href="index.html" style="text-decoration: none; color: inherit; display: block; width: 100%;">
+                                <span>Introduction to Python</span>
+                                <span class="status completed">Completed</span>
+                            </a>
+                        </li>
+                        <li class="topic-item">
+                            <a href="python-variables.html" style="text-decoration: none; color: inherit; display: block; width: 100%;">
+                                <span>Variables & Data Types</span>
+                                <span class="status completed">Completed</span>
+                            </a>
+                        </li>
+                        <li class="topic-item active">
+                            <a href="python-control-flow.html" style="text-decoration: none; color: inherit; display: block; width: 100%;">
+                                <span>Control Flow</span>
+                                <span class="status available">Available</span>
+                            </a>
+                        </li>
+                        <li class="topic-item">
+                            <a href="python-functions.html" style="text-decoration: none; color: inherit; display: block; width: 100%;">
+                                <span>Functions</span>
+                                <span class="status available">Available</span>
+                            </a>
+                        </li>
+                        <li class="topic-item">
+                            <a href="python-data-structures.html" style="text-decoration: none; color: inherit; display: block; width: 100%;">
+                                <span>Data Structures</span>
+                                <span class="status available">Available</span>
+                            </a>
+                        </li>
+                        <li class="topic-item">
+                            <a href="pandas-intro.html" style="text-decoration: none; color: inherit; display: block; width: 100%;">
+                                <span>Introduction to Pandas</span>
+                                <span class="status available">Available</span>
+                            </a>
+                        </li>
+                        <li class="topic-item">
+                            <a href="numpy-intro.html" style="text-decoration: none; color: inherit; display: block; width: 100%;">
+                                <span>Introduction to NumPy</span>
+                                <span class="status available">Available</span>
+                            </a>
+                        </li>
+                        <li class="topic-item">
+                            <a href="matplotlib-intro.html" style="text-decoration: none; color: inherit; display: block; width: 100%;">
+                                <span>Introduction to Matplotlib</span>
+                                <span class="status available">Available</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </aside>
+
+            <section class="content-area">
+                <div class="content-header">
+                    <h2>Control Flow</h2>
+                    <div class="breadcrumb">Python Basics > Control Flow</div>
+                </div>
+
+                <div class="lesson-content">
+                    <p>Control flow refers to the order in which the program's code executes. Python provides several control flow statements that allow you to control the flow of your program based on conditions, repeat code blocks, and more.</p>
+                    
+                    <h3>Conditional Statements</h3>
+                    <p>Conditional statements allow you to execute different code blocks based on whether a condition is true or false.</p>
+                    
+                    <h4>if Statement</h4>
+                    <p>The <code>if</code> statement executes a block of code if a specified condition is true:</p>
+                    <pre><code>x = 10
+
+if x > 0:
+    print("x is positive")</code></pre>
+                    
+                    <h4>if-else Statement</h4>
+                    <p>The <code>if-else</code> statement executes one block of code if a condition is true and another block if it's false:</p>
+                    <pre><code>x = -5
+
+if x > 0:
+    print("x is positive")
+else:
+    print("x is not positive")</code></pre>
+                    
+                    <h4>if-elif-else Statement</h4>
+                    <p>The <code>if-elif-else</code> statement allows you to check multiple conditions:</p>
+                    <pre><code>x = 0
+
+if x > 0:
+    print("x is positive")
+elif x < 0:
+    print("x is negative")
+else:
+    print("x is zero")</code></pre>
+                    
+                    <h4>Nested if Statements</h4>
+                    <p>You can nest if statements inside other if statements:</p>
+                    <pre><code>x = 10
+y = 5
+
+if x > 0:
+    print("x is positive")
+    if y > 0:
+        print("y is also positive")
+    else:
+        print("y is not positive")</code></pre>
+                    
+                    <h4>Conditional Expressions (Ternary Operator)</h4>
+                    <p>Python provides a concise way to write simple if-else statements:</p>
+                    <pre><code>x = 10
+result = "positive" if x > 0 else "non-positive"
+print(result)  # Outputs: "positive"</code></pre>
+                    
+                    <h3>Loops</h3>
+                    <p>Loops allow you to execute a block of code multiple times.</p>
+                    
+                    <h4>for Loop</h4>
+                    <p>The <code>for</code> loop is used to iterate over a sequence (like a list, tuple, string, etc.) or other iterable objects:</p>
+                    <pre><code># Iterating over a list
+fruits = ["apple", "banana", "cherry"]
+for fruit in fruits:
+    print(fruit)
+
+# Iterating over a string
+for char in "Python":
+    print(char)
+
+# Iterating over a range
+for i in range(5):  # 0, 1, 2, 3, 4
+    print(i)</code></pre>
+                    
+                    <h4>while Loop</h4>
+                    <p>The <code>while</code> loop executes a block of code as long as a condition is true:</p>
+                    <pre><code>count = 0
+while count < 5:
+    print(count)
+    count += 1</code></pre>
+                    
+                    <h4>break Statement</h4>
+                    <p>The <code>break</code> statement is used to exit a loop prematurely:</p>
+                    <pre><code>for i in range(10):
+    if i == 5:
+        break
+    print(i)  # Outputs: 0, 1, 2, 3, 4</code></pre>
+                    
+                    <h4>continue Statement</h4>
+                    <p>The <code>continue</code> statement is used to skip the current iteration and continue with the next one:</p>
+                    <pre><code>for i in range(10):
+    if i % 2 == 0:  # Skip even numbers
+        continue
+    print(i)  # Outputs: 1, 3, 5, 7, 9</code></pre>
+                    
+                    <h4>else Clause in Loops</h4>
+                    <p>Both <code>for</code> and <code>while</code> loops can have an optional <code>else</code> clause that executes when the loop completes normally (i.e., not terminated by a <code>break</code> statement):</p>
+                    <pre><code># With for loop
+for i in range(5):
+    print(i)
+else:
+    print("Loop completed")
+
+# With while loop
+count = 0
+while count < 5:
+    print(count)
+    count += 1
+else:
+    print("Loop completed")
+
+# With break
+for i in range(5):
+    if i == 3:
+        break
+    print(i)
+else:
+    print("This won't execute because the loop was exited with break")</code></pre>
+                    
+                    <h3>Loop Control Techniques</h3>
+                    
+                    <h4>range() Function</h4>
+                    <p>The <code>range()</code> function generates a sequence of numbers:</p>
+                    <pre><code># range(stop)
+for i in range(5):  # 0, 1, 2, 3, 4
+    print(i)
+
+# range(start, stop)
+for i in range(2, 6):  # 2, 3, 4, 5
+    print(i)
+
+# range(start, stop, step)
+for i in range(1, 10, 2):  # 1, 3, 5, 7, 9
+    print(i)</code></pre>
+                    
+                    <h4>enumerate() Function</h4>
+                    <p>The <code>enumerate()</code> function adds a counter to an iterable:</p>
+                    <pre><code>fruits = ["apple", "banana", "cherry"]
+for index, fruit in enumerate(fruits):
+    print(f"{index}: {fruit}")
+# Outputs:
+# 0: apple
+# 1: banana
+# 2: cherry</code></pre>
+                    
+                    <h4>zip() Function</h4>
+                    <p>The <code>zip()</code> function combines elements from multiple iterables:</p>
+                    <pre><code>names = ["Alice", "Bob", "Charlie"]
+ages = [25, 30, 35]
+for name, age in zip(names, ages):
+    print(f"{name} is {age} years old")
+# Outputs:
+# Alice is 25 years old
+# Bob is 30 years old
+# Charlie is 35 years old</code></pre>
+                    
+                    <h3>Comprehensions</h3>
+                    <p>Comprehensions provide a concise way to create lists, dictionaries, and sets based on existing iterables.</p>
+                    
+                    <h4>List Comprehension</h4>
+                    <pre><code># Create a list of squares
+squares = [x**2 for x in range(10)]
+print(squares)  # [0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
+
+# With a condition
+even_squares = [x**2 for x in range(10) if x % 2 == 0]
+print(even_squares)  # [0, 4, 16, 36, 64]</code></pre>
+                    
+                    <h4>Dictionary Comprehension</h4>
+                    <pre><code># Create a dictionary of squares
+square_dict = {x: x**2 for x in range(5)}
+print(square_dict)  # {0: 0, 1: 1, 2: 4, 3: 9, 4: 16}
+
+# With a condition
+even_square_dict = {x: x**2 for x in range(10) if x % 2 == 0}
+print(even_square_dict)  # {0: 0, 2: 4, 4: 16, 6: 36, 8: 64}</code></pre>
+                    
+                    <h4>Set Comprehension</h4>
+                    <pre><code># Create a set of squares
+square_set = {x**2 for x in range(5)}
+print(square_set)  # {0, 1, 4, 9, 16}
+
+# With a condition
+even_square_set = {x**2 for x in range(10) if x % 2 == 0}
+print(even_square_set)  # {0, 4, 16, 36, 64}</code></pre>
+                    
+                    <h3>Advanced Control Flow</h3>
+                    
+                    <h4>try-except Statement</h4>
+                    <p>The <code>try-except</code> statement is used for exception handling:</p>
+                    <pre><code>try:
+    result = 10 / 0
+except ZeroDivisionError:
+    print("Cannot divide by zero")
+
+# With multiple except blocks
+try:
+    value = int("abc")
+except ValueError:
+    print("Invalid conversion")
+except ZeroDivisionError:
+    print("Cannot divide by zero")
+
+# With else and finally
+try:
+    result = 10 / 2
+except ZeroDivisionError:
+    print("Cannot divide by zero")
+else:
+    print("Division successful:", result)
+finally:
+    print("This always executes")</code></pre>
+                    
+                    <h4>with Statement</h4>
+                    <p>The <code>with</code> statement is used for resource management:</p>
+                    <pre><code># File handling with 'with'
+with open("example.txt", "w") as file:
+    file.write("Hello, World!")
+# File is automatically closed after the block</code></pre>
+                    
+                    <h4>assert Statement</h4>
+                    <p>The <code>assert</code> statement is used for debugging:</p>
+                    <pre><code>def calculate_average(numbers):
+    assert len(numbers) > 0, "List cannot be empty"
+    return sum(numbers) / len(numbers)
+
+# This will raise an AssertionError
+# calculate_average([])</code></pre>
+                    
+                    <p>Try experimenting with control flow statements in the code playground below!</p>
+                </div>
+
+                <div class="quiz-container">
+                    <h3>Quick Quiz</h3>
+                    <div class="quiz-question">
+                        <p>Which statement is used to exit a loop prematurely in Python?</p>
+                        <div class="quiz-options">
+                            <div class="quiz-option-wrapper">
+                                <button class="quiz-option-button" onclick="this.classList.add('selected', 'correct'); document.getElementById('quiz-feedback').innerHTML = 'Correct! The break statement is used to exit a loop prematurely.'; document.getElementById('quiz-feedback').className = 'quiz-feedback correct'; document.getElementById('quiz-next').disabled = false;">break</button>
+                            </div>
+                            <div class="quiz-option-wrapper">
+                                <button class="quiz-option-button" onclick="this.classList.add('selected', 'incorrect'); document.getElementById('quiz-feedback').innerHTML = 'Incorrect. The continue statement skips the current iteration but does not exit the loop.'; document.getElementById('quiz-feedback').className = 'quiz-feedback incorrect'; document.getElementById('quiz-next').disabled = false;">continue</button>
+                            </div>
+                            <div class="quiz-option-wrapper">
+                                <button class="quiz-option-button" onclick="this.classList.add('selected', 'incorrect'); document.getElementById('quiz-feedback').innerHTML = 'Incorrect. The pass statement does nothing and is used as a placeholder.'; document.getElementById('quiz-feedback').className = 'quiz-feedback incorrect'; document.getElementById('quiz-next').disabled = false;">pass</button>
+                            </div>
+                            <div class="quiz-option-wrapper">
+                                <button class="quiz-option-button" onclick="this.classList.add('selected', 'incorrect'); document.getElementById('quiz-feedback').innerHTML = 'Incorrect. The return statement is used to exit a function, not specifically a loop.'; document.getElementById('quiz-feedback').className = 'quiz-feedback incorrect'; document.getElementById('quiz-next').disabled = false;">return</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="quiz-feedback" class="quiz-feedback"></div>
+                    <div class="quiz-controls">
+                        <a href="python-functions.html" class="btn btn-primary" id="quiz-next" disabled>Next Lesson</a>
+                    </div>
+                </div>
+
+                <div class="code-playground">
+                    <div class="code-header">
+                        <h3>Code Playground</h3>
+                        <div class="code-controls">
+                            <button class="btn btn-secondary" id="reset-code">Reset</button>
+                            <button class="btn btn-primary" id="run-code">Run Code</button>
+                        </div>
+                    </div>
+                    <textarea class="code-editor" id="code-editor"></textarea>
+                    <div class="code-output" id="code-output">
+                        <p class="output-placeholder">Code output will appear here...</p>
+                    </div>
+                </div>
+
+                <div class="navigation-controls">
+                    <a href="python-variables.html" class="btn btn-secondary">Previous Lesson</a>
+                    <a href="python-functions.html" class="btn btn-primary">Next Lesson</a>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 PythonLearn. Created for educational purposes.</p>
+        </div>
+    </footer>
+</body>
+</html>

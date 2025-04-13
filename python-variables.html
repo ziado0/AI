@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python Learning App - Variables & Data Types</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/pyodide/v0.23.4/full/pyodide.js"></script>
+    <script src="js/app.js"></script>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <h1>Python<span>Learn</span></h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Dashboard</a></li>
+                    <li><a href="python-variables.html" class="active">Python Basics</a></li>
+                    <li><a href="pandas-intro.html">Pandas</a></li>
+                    <li><a href="numpy-intro.html">NumPy</a></li>
+                    <li><a href="matplotlib-intro.html">Matplotlib</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="dashboard">
+            <aside class="sidebar">
+                <div class="progress-container">
+                    <h2>Your Progress</h2>
+                    <div class="progress-stats">
+                        <span>12.5% Complete</span>
+                        <span>1/8 Lessons</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="--progress-percent: 12.5%"></div>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="progressChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="topics-container">
+                    <h2>Learning Path</h2>
+                    <ul class="topics-list">
+                        <li class="topic-item">
+                            <a href="index.html" style="text-decoration: none; color: inherit; display: block; width: 100%;">
+                                <span>Introduction to Python</span>
+                                <span class="status completed">Completed</span>
+                            </a>
+                        </li>
+                        <li class="topic-item active">
+                            <a href="python-variables.html" style="text-decoration: none; color: inherit; display: block; width: 100%;">
+                                <span>Variables & Data Types</span>
+                                <span class="status available">Available</span>
+                            </a>
+                        </li>
+                        <li class="topic-item">
+                            <a href="python-control-flow.html" style="text-decoration: none; color: inherit; display: block; width: 100%;">
+                                <span>Control Flow</span>
+                                <span class="status available">Available</span>
+                            </a>
+                        </li>
+                        <li class="topic-item">
+                            <a href="python-functions.html" style="text-decoration: none; color: inherit; display: block; width: 100%;">
+                                <span>Functions</span>
+                                <span class="status available">Available</span>
+                            </a>
+                        </li>
+                        <li class="topic-item">
+                            <a href="python-data-structures.html" style="text-decoration: none; color: inherit; display: block; width: 100%;">
+                                <span>Data Structures</span>
+                                <span class="status available">Available</span>
+                            </a>
+                        </li>
+                        <li class="topic-item">
+                            <a href="pandas-intro.html" style="text-decoration: none; color: inherit; display: block; width: 100%;">
+                                <span>Introduction to Pandas</span>
+                                <span class="status available">Available</span>
+                            </a>
+                        </li>
+                        <li class="topic-item">
+                            <a href="numpy-intro.html" style="text-decoration: none; color: inherit; display: block; width: 100%;">
+                                <span>Introduction to NumPy</span>
+                                <span class="status available">Available</span>
+                            </a>
+                        </li>
+                        <li class="topic-item">
+                            <a href="matplotlib-intro.html" style="text-decoration: none; color: inherit; display: block; width: 100%;">
+                                <span>Introduction to Matplotlib</span>
+                                <span class="status available">Available</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </aside>
+
+            <section class="content-area">
+                <div class="content-header">
+                    <h2>Variables & Data Types</h2>
+                    <div class="breadcrumb">Python Basics > Variables & Data Types</div>
+                </div>
+
+                <div class="lesson-content">
+                    <p>Variables are used to store data in a program. In Python, you don't need to declare a variable's type explicitly; the interpreter infers it from the value assigned to it. This is called dynamic typing.</p>
+                    
+                    <h3>Creating Variables</h3>
+                    <p>In Python, you create a variable by assigning a value to it using the equals sign (=):</p>
+                    <pre><code>name = "John"
+age = 25
+height = 1.75
+is_student = True</code></pre>
+                    
+                    <p>In this example, we've created four variables with different types:</p>
+                    <ul>
+                        <li><code>name</code> is a string (text)</li>
+                        <li><code>age</code> is an integer (whole number)</li>
+                        <li><code>height</code> is a float (decimal number)</li>
+                        <li><code>is_student</code> is a boolean (True or False)</li>
+                    </ul>
+                    
+                    <h3>Variable Naming Rules</h3>
+                    <p>When naming variables in Python, you must follow these rules:</p>
+                    <ul>
+                        <li>Variable names can contain letters, numbers, and underscores</li>
+                        <li>Variable names must start with a letter or underscore</li>
+                        <li>Variable names cannot start with a number</li>
+                        <li>Variable names are case-sensitive (<code>age</code>, <code>Age</code>, and <code>AGE</code> are three different variables)</li>
+                        <li>Variable names cannot be Python keywords (like <code>if</code>, <code>for</code>, <code>while</code>, etc.)</li>
+                    </ul>
+                    
+                    <h3>Python Data Types</h3>
+                    <p>Python has several built-in data types:</p>
+                    
+                    <h4>Numeric Types</h4>
+                    <ul>
+                        <li><strong>int</strong>: Integer numbers (e.g., <code>42</code>, <code>-7</code>)</li>
+                        <li><strong>float</strong>: Floating-point numbers (e.g., <code>3.14</code>, <code>-0.001</code>)</li>
+                        <li><strong>complex</strong>: Complex numbers (e.g., <code>3+4j</code>)</li>
+                    </ul>
+                    
+                    <h4>Text Type</h4>
+                    <ul>
+                        <li><strong>str</strong>: Strings (e.g., <code>"Hello"</code>, <code>'Python'</code>)</li>
+                    </ul>
+                    
+                    <h4>Boolean Type</h4>
+                    <ul>
+                        <li><strong>bool</strong>: Boolean values (<code>True</code> or <code>False</code>)</li>
+                    </ul>
+                    
+                    <h4>Sequence Types</h4>
+                    <ul>
+                        <li><strong>list</strong>: Ordered, mutable collection (e.g., <code>[1, 2, 3]</code>)</li>
+                        <li><strong>tuple</strong>: Ordered, immutable collection (e.g., <code>(1, 2, 3)</code>)</li>
+                        <li><strong>range</strong>: Sequence of numbers (e.g., <code>range(6)</code>)</li>
+                    </ul>
+                    
+                    <h4>Mapping Type</h4>
+                    <ul>
+                        <li><strong>dict</strong>: Key-value pairs (e.g., <code>{"name": "John", "age": 25}</code>)</li>
+                    </ul>
+                    
+                    <h4>Set Types</h4>
+                    <ul>
+                        <li><strong>set</strong>: Unordered collection of unique items (e.g., <code>{1, 2, 3}</code>)</li>
+                        <li><strong>frozenset</strong>: Immutable version of a set</li>
+                    </ul>
+                    
+                    <h4>None Type</h4>
+                    <ul>
+                        <li><strong>NoneType</strong>: The <code>None</code> object, representing the absence of a value</li>
+                    </ul>
+                    
+                    <h3>Type Conversion</h3>
+                    <p>You can convert between different data types using conversion functions:</p>
+                    <pre><code># Convert to integer
+x = int(3.14)    # x will be 3
+y = int("10")    # y will be 10
+
+# Convert to float
+a = float(5)     # a will be 5.0
+b = float("3.14") # b will be 3.14
+
+# Convert to string
+c = str(42)      # c will be "42"
+d = str(3.14)    # d will be "3.14"
+
+# Convert to boolean
+e = bool(0)      # e will be False
+f = bool(1)      # f will be True
+g = bool("")     # g will be False
+h = bool("Hello") # h will be True</code></pre>
+                    
+                    <h3>Checking Types</h3>
+                    <p>You can check the type of a variable using the <code>type()</code> function:</p>
+                    <pre><code>x = 42
+print(type(x))  # <class 'int'>
+
+y = "Hello"
+print(type(y))  # <class 'str'>
+
+z = 3.14
+print(type(z))  # <class 'float'></code></pre>
+                    
+                    <h3>String Operations</h3>
+                    <p>Strings are one of the most commonly used data types. Here are some common string operations:</p>
+                    
+                    <h4>String Concatenation</h4>
+                    <pre><code>first_name = "John"
+last_name = "Doe"
+full_name = first_name + " " + last_name  # "John Doe"</code></pre>
+                    
+                    <h4>String Repetition</h4>
+                    <pre><code>pattern = "-" * 10  # "----------"</code></pre>
+                    
+                    <h4>String Indexing</h4>
+                    <pre><code>message = "Hello, World!"
+first_char = message[0]   # "H"
+last_char = message[-1]   # "!"</code></pre>
+                    
+                    <h4>String Slicing</h4>
+                    <pre><code>message = "Hello, World!"
+substring = message[0:5]  # "Hello"
+from_sixth = message[7:]  # "World!"
+to_fifth = message[:5]    # "Hello"</code></pre>
+                    
+                    <h4>String Methods</h4>
+                    <pre><code>message = "Hello, World!"
+print(message.upper())         # "HELLO, WORLD!"
+print(message.lower())         # "hello, world!"
+print(message.replace("Hello", "Hi"))  # "Hi, World!"
+print(message.split(", "))     # ["Hello", "World!"]
+print(len(message))            # 13</code></pre>
+                    
+                    <h3>F-Strings (Formatted String Literals)</h3>
+                    <p>F-strings provide a concise and convenient way to embed expressions inside string literals:</p>
+                    <pre><code>name = "Alice"
+age = 30
+message = f"My name is {name} and I am {age} years old."
+print(message)  # "My name is Alice and I am 30 years old."
+
+# You can also include expressions
+price = 49.95
+quantity = 3
+total = f"Total: ${price * quantity:.2f}"
+print(total)  # "Total: $149.85"</code></pre>
+                    
+                    <h3>Variable Scope</h3>
+                    <p>The scope of a variable determines where in your code the variable is accessible. Python has two main types of variable scope:</p>
+                    
+                    <h4>Global Scope</h4>
+                    <p>Variables defined at the top level of a script or module have global scope and can be accessed throughout the code:</p>
+                    <pre><code>global_var = 10  # Global variable
+
+def my_function():
+    print(global_var)  # Accessing global variable
+
+my_function()  # Outputs: 10</code></pre>
+                    
+                    <h4>Local Scope</h4>
+                    <p>Variables defined inside a function have local scope and can only be accessed within that function:</p>
+                    <pre><code>def my_function():
+    local_var = 20  # Local variable
+    print(local_var)
+
+my_function()  # Outputs: 20
+# print(local_var)  # This would cause an error</code></pre>
+                    
+                    <h4>The <code>global</code> Keyword</h4>
+                    <p>You can modify a global variable from within a function using the <code>global</code> keyword:</p>
+                    <pre><code>counter = 0  # Global variable
+
+def increment():
+    global counter
+    counter += 1
+    print(counter)
+
+increment()  # Outputs: 1
+increment()  # Outputs: 2</code></pre>
+                    
+                    <p>Try experimenting with variables and data types in the code playground below!</p>
+                </div>
+
+                <div class="quiz-container">
+                    <h3>Quick Quiz</h3>
+                    <div class="quiz-question">
+                        <p>Which of the following is NOT a valid variable name in Python?</p>
+                        <div class="quiz-options">
+                            <div class="quiz-option-wrapper">
+                                <button class="quiz-option-button" onclick="this.classList.add('selected', 'incorrect'); document.getElementById('quiz-feedback').innerHTML = 'Incorrect. _variable is a valid variable name in Python.'; document.getElementById('quiz-feedback').className = 'quiz-feedback incorrect'; document.getElementById('quiz-next').disabled = false;">_variable</button>
+                            </div>
+                            <div class="quiz-option-wrapper">
+                                <button class="quiz-option-button" onclick="this.classList.add('selected', 'incorrect'); document.getElementById('quiz-feedback').innerHTML = 'Incorrect. variable_name is a valid variable name in Python.'; document.getElementById('quiz-feedback').className = 'quiz-feedback incorrect'; document.getElementById('quiz-next').disabled = false;">variable_name</button>
+                            </div>
+                            <div class="quiz-option-wrapper">
+                                <button class="quiz-option-button" onclick="this.classList.add('selected', 'correct'); document.getElementById('quiz-feedback').innerHTML = 'Correct! Variable names cannot start with a number in Python.'; document.getElementById('quiz-feedback').className = 'quiz-feedback correct'; document.getElementById('quiz-next').disabled = false;">2variable</button>
+                            </div>
+                            <div class="quiz-option-wrapper">
+                                <button class="quiz-option-button" onclick="this.classList.add('selected', 'incorrect'); document.getElementById('quiz-feedback').innerHTML = 'Incorrect. camelCase is a valid variable name in Python.'; document.getElementById('quiz-feedback').className = 'quiz-feedback incorrect'; document.getElementById('quiz-next').disabled = false;">camelCase</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="quiz-feedback" class="quiz-feedback"></div>
+                    <div class="quiz-controls">
+                        <a href="python-control-flow.html" class="btn btn-primary" id="quiz-next" disabled>Next Lesson</a>
+                    </div>
+                </div>
+
+                <div class="code-playground">
+                    <div class="code-header">
+                        <h3>Code Playground</h3>
+                        <div class="code-controls">
+                            <button class="btn btn-secondary" id="reset-code">Reset</button>
+                            <button class="btn btn-primary" id="run-code">Run Code</button>
+                        </div>
+                    </div>
+                    <textarea class="code-editor" id="code-editor"></textarea>
+                    <div class="code-output" id="code-output">
+                        <p class="output-placeholder">Code output will appear here...</p>
+                    </div>
+                </div>
+
+                <div class="navigation-controls">
+                    <a href="index.html" class="btn btn-secondary">Previous Lesson</a>
+                    <a href="python-control-flow.html" class="btn btn-primary">Next Lesson</a>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 PythonLearn. Created for educational purposes.</p>
+        </div>
+    </footer>
+</body>
+</html>

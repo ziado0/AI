@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python Learning App - Introduction to Matplotlib</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/pyodide/v0.23.4/full/pyodide.js"></script>
+    <script src="js/app.js"></script>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <h1>Python<span>Learn</span></h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Dashboard</a></li>
+                    <li><a href="python-variables.html">Python Basics</a></li>
+                    <li><a href="pandas-intro.html">Pandas</a></li>
+                    <li><a href="numpy-intro.html">NumPy</a></li>
+                    <li><a href="matplotlib-intro.html" class="active">Matplotlib</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="dashboard">
+            <aside class="sidebar">
+                <div class="progress-container">
+                    <h2>Your Progress</h2>
+                    <div class="progress-stats">
+                        <span>87.5% Complete</span>
+                        <span>7/8 Lessons</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="--progress-percent: 87.5%"></div>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="progressChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="topics-container">
+                    <h2>Learning Path</h2>
+                    <ul class="topics-list">
+                        <li class="topic-item">
+                            <a href="index.html" style="text-decoration: none; color: inherit; display: block; width: 100%;">
+                                <span>Introduction to Python</span>
+                                <span class="status completed">Completed</span>
+                            </a>
+                        </li>
+                        <li class="topic-item">
+                            <a href="python-variables.html" style="text-decoration: none; color: inherit; display: block; width: 100%;">
+                                <span>Variables & Data Types</span>
+                                <span class="status completed">Completed</span>
+                            </a>
+                        </li>
+                        <li class="topic-item">
+                            <a href="python-control-flow.html" style="text-decoration: none; color: inherit; display: block; width: 100%;">
+                                <span>Control Flow</span>
+                                <span class="status completed">Completed</span>
+                            </a>
+                        </li>
+                        <li class="topic-item">
+                            <a href="python-functions.html" style="text-decoration: none; color: inherit; display: block; width: 100%;">
+                                <span>Functions</span>
+                                <span class="status completed">Completed</span>
+                            </a>
+                        </li>
+                        <li class="topic-item">
+                            <a href="python-data-structures.html" style="text-decoration: none; color: inherit; display: block; width: 100%;">
+                                <span>Data Structures</span>
+                                <span class="status completed">Completed</span>
+                            </a>
+                        </li>
+                        <li class="topic-item">
+                            <a href="pandas-intro.html" style="text-decoration: none; color: inherit; display: block; width: 100%;">
+                                <span>Introduction to Pandas</span>
+                                <span class="status completed">Completed</span>
+                            </a>
+                        </li>
+                        <li class="topic-item">
+                            <a href="numpy-intro.html" style="text-decoration: none; color: inherit; display: block; width: 100%;">
+                                <span>Introduction to NumPy</span>
+                                <span class="status completed">Completed</span>
+                            </a>
+                        </li>
+                        <li class="topic-item active">
+                            <a href="matplotlib-intro.html" style="text-decoration: none; color: inherit; display: block; width: 100%;">
+                                <span>Introduction to Matplotlib</span>
+                                <span class="status available">Available</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </aside>
+
+            <section class="content-area">
+                <div class="content-header">
+                    <h2>Introduction to Matplotlib</h2>
+                    <div class="breadcrumb">Data Science Libraries > Matplotlib</div>
+                </div>
+
+                <div class="lesson-content">
+                    <p>Matplotlib is a comprehensive library for creating static, animated, and interactive visualizations in Python. It provides a MATLAB-like interface, particularly when used with the pyplot module. In this lesson, we'll explore the basics of Matplotlib and how to create various types of plots.</p>
+                    
+                    <h3>What is Matplotlib?</h3>
+                    <p>Matplotlib is a plotting library for Python that provides a wide variety of plots and figures. It's designed to be compatible with NumPy and is often used in conjunction with other libraries like Pandas and SciPy. Matplotlib is particularly useful for:</p>
+                    <ul>
+                        <li>Creating publication-quality plots</li>
+                        <li>Making interactive figures that can respond to user input</li>
+                        <li>Embedding plots in graphical user interfaces</li>
+                        <li>Generating plots for web applications</li>
+                    </ul>
+                    
+                    <h3>Installing Matplotlib</h3>
+                    <p>You can install Matplotlib using pip:</p>
+                    <pre><code>pip install matplotlib</code></pre>
+                    
+                    <p>Or using conda:</p>
+                    <pre><code>conda install matplotlib</code></pre>
+                    
+                    <h3>Importing Matplotlib</h3>
+                    <p>The conventional way to import Matplotlib is:</p>
+                    <pre><code>import matplotlib.pyplot as plt</code></pre>
+                    
+                    <h3>Basic Plotting</h3>
+                    <p>Let's start with some basic plotting examples.</p>
+                    
+                    <h4>Line Plot</h4>
+                    <pre><code>import matplotlib.pyplot as plt
+import numpy as np
+
+# Create data
+x = np.linspace(0, 10, 100)
+y = np.sin(x)
+
+# Create a figure and axis
+plt.figure(figsize=(8, 4))
+
+# Plot data
+plt.plot(x, y)
+
+# Add labels and title
+plt.xlabel('x')
+plt.ylabel('sin(x)')
+plt.title('Sine Wave')
+
+# Add grid
+plt.grid(True)
+
+# Show the plot
+plt.show()</code></pre>
+                    
+                    <h4>Multiple Lines</h4>
+                    <pre><code>import matplotlib.pyplot as plt
+import numpy as np
+
+# Create data
+x = np.linspace(0, 2*np.pi, 100)
+y1 = np.sin(x)
+y2 = np.cos(x)
+
+# Create a figure and axis
+plt.figure(figsize=(8, 4))
+
+# Plot data
+plt.plot(x, y1, label='sin(x)')
+plt.plot(x, y2, label='cos(x)')
+
+# Add labels and title
+plt.xlabel('x')
+plt.ylabel('y')
+plt.title('Sine and Cosine Waves')
+
+# Add legend
+plt.legend()
+
+# Add grid
+plt.grid(True)
+
+# Show the plot
+plt.show()</code></pre>
+                    
+                    <h4>Customizing Line Properties</h4>
+                    <pre><code>import matplotlib.pyplot as plt
+import numpy as np
+
+# Create data
+x = np.linspace(0, 10, 100)
+y1 = np.sin(x)
+y2 = np.cos(x)
+
+# Create a figure and axis
+plt.figure(figsize=(8, 4))
+
+# Plot data with custom properties
+plt.plot(x, y1, color='blue', linestyle='-', linewidth=2, marker='o', markersize=4, label='sin(x)')
+plt.plot(x, y2, color='red', linestyle='--', linewidth=2, marker='s', markersize=4, label='cos(x)')
+
+# Add labels and title
+plt.xlabel('x')
+plt.ylabel('y')
+plt.title('Customized Line Plot')
+
+# Add legend
+plt.legend()
+
+# Show the plot
+plt.show()</code></pre>
+                    
+                    <h3>Different Types of Plots</h3>
+                    <p>Matplotlib supports many different types of plots.</p>
+                    
+                    <h4>Scatter Plot</h4>
+                    <pre><code>import matplotlib.pyplot as plt
+import numpy as np
+
+# Create random data
+np.random.seed(42)
+x = np.random.rand(50)
+y = np.random.rand(50)
+colors = np.random.rand(50)
+sizes = 1000 * np.random.rand(50)
+
+# Create a scatter plot
+plt.figure(figsize=(8, 6))
+plt.scatter(x, y, c=colors, s=sizes, alpha=0.5, cmap='viridis')
+
+# Add labels and title
+plt.xlabel('x')
+plt.ylabel('y')
+plt.title('Scatter Plot')
+
+# Add colorbar
+plt.colorbar()
+
+# Show the plot
+plt.show()</code></pre>
+                    
+                    <h4>Bar Plot</h4>
+                    <pre><code>import matplotlib.pyplot as plt
+import numpy as np
+
+# Create data
+categories = ['A', 'B', 'C', 'D', 'E']
+values = [25, 40, 30, 55, 15]
+
+# Create a bar plot
+plt.figure(figsize=(8, 6))
+plt.bar(categories, values, color='skyblue')
+
+# Add labels and title
+plt.xlabel('Category')
+plt.ylabel('Value')
+plt.title('Bar Plot')
+
+# Show the plot
+plt.show()</code></pre>
+                    
+                    <h4>Horizontal Bar Plot</h4>
+                    <pre><code>import matplotlib.pyplot as plt
+import numpy as np
+
+# Create data
+categories = ['A', 'B', 'C', 'D', 'E']
+values = [25, 40, 30, 55, 15]
+
+# Create a horizontal bar plot
+plt.figure(figsize=(8, 6))
+plt.barh(categories, values, color='salmon')
+
+# Add labels and title
+plt.xlabel('Value')
+plt.ylabel('Category')
+plt.title('Horizontal Bar Plot')
+
+# Show the plot
+plt.show()</code></pre>
+                    
+                    <h4>Histogram</h4>
+                    <pre><code>import matplotlib.pyplot as plt
+import numpy as np
+
+# Create random data
+np.random.seed(42)
+data = np.random.randn(1000)
+
+# Create a histogram
+plt.figure(figsize=(8, 6))
+plt.hist(data, bins=30, color='skyblue', edgecolor='black', alpha=0.7)
+
+# Add labels and title
+plt.xlabel('Value')
+plt.ylabel('Frequency')
+plt.title('Histogram')
+
+# Show the plot
+plt.show()</code></pre>
+                    
+                    <h4>Pie Chart</h4>
+                    <pre><code>import matplotlib.pyplot as plt
+import numpy as np
+
+# Create data
+labels = ['A', 'B', 'C', 'D', 'E']
+sizes = [15, 30, 25, 10, 20]
+explode = (0, 0.1, 0, 0, 0)  # explode the 2nd slice
+
+# Create a pie chart
+plt.figure(figsize=(8, 8))
+plt.pie(sizes, explode=explode, labels=labels, autopct='%1.1f%%',
+        shadow=True, startangle=90)
+
+# Equal aspect ratio ensures that pie is drawn as a circle
+plt.axis('equal')
+
+# Add title
+plt.title('Pie Chart')
+
+# Show the plot
+plt.show()</code></pre>
+                    
+                    <h4>Box Plot</h4>
+                    <pre><code>import matplotlib.pyplot as plt
+import numpy as np
+
+# Create random data
+np.random.seed(42)
+data = [np.random.normal(0, std, 100) for std in range(1, 6)]
+
+# Create a box plot
+plt.figure(figsize=(8, 6))
+plt.boxplot(data, labels=['A', 'B', 'C', 'D', 'E'])
+
+# Add labels and title
+plt.xlabel('Category')
+plt.ylabel('Value')
+plt.title('Box Plot')
+
+# Show the plot
+plt.show()</code></pre>
+                    
+                    <h3>Subplots</h3>
+                    <p>Matplotlib allows you to create multiple plots in a single figure using subplots.</p>
+                    
+                    <h4>Basic Subplots</h4>
+                    <pre><code>import matplotlib.pyplot as plt
+import numpy as np
+
+# Create data
+x = np.linspace(0, 10, 100)
+y1 = np.sin(x)
+y2 = np.cos(x)
+y3 = np.tan(x)
+y4 = np.exp(-x/10)
+
+# Create a figure and subplots
+fig, axs = plt.subplots(2, 2, figsize=(10, 8))
+
+# Plot on each subplot
+axs[0, 0].plot(x, y1)
+axs[0, 0].set_title('Sine')
+axs[0, 0].set_xlabel('x')
+axs[0, 0].set_ylabel('sin(x)')
+
+axs[0, 1].plot(x, y2)
+axs[0, 1].set_title('Cosine')
+axs[0, 1].set_xlabel('x')
+axs[0, 1].set_ylabel('cos(x)')
+
+axs[1, 0].plot(x, y3)
+axs[1, 0].set_title('Tangent')
+axs[1, 0].set_xlabel('x')
+axs[1, 0].set_ylabel('tan(x)')
+
+axs[1, 1].plot(x, y4)
+axs[1, 1].set_title('Exponential')
+axs[1, 1].set_xlabel('x')
+axs[1, 1].set_ylabel('exp(-x/10)')
+
+# Adjust layout
+plt.tight_layout()
+
+# Show the plot
+plt.show()</code></pre>
+                    
+                    <h4>Different Types of Plots in Subplots</h4>
+                    <pre><code>import matplotlib.pyplot as plt
+import numpy as np
+
+# Create data
+np.random.seed(42)
+x = np.linspace(0, 10, 100)
+y = np.sin(x)
+data = np.random.randn(1000)
+categories = ['A', 'B', 'C', 'D']
+values = [25, 40, 30, 55]
+
+# Create a figure and subplots
+fig, axs = plt.subplots(2, 2, figsize=(10, 8))
+
+# Line plot
+axs[0, 0].plot(x, y)
+axs[0, 0].set_title('Line Plot')
+axs[0, 0].set_xlabel('x')
+axs[0, 0].set_ylabel('sin(x)')
+
+# Histogram
+axs[0, 1].hist(data, bins=30, color='skyblue', edgecolor='black')
+axs[0, 1].set_title('Histogram')
+axs[0, 1].set_xlabel('Value')
+axs[0, 1].set_ylabel('Frequency')
+
+# Bar plot
+axs[1, 0].bar(categories, values, color='salmon')
+axs[1, 0].set_title('Bar Plot')
+axs[1, 0].set_xlabel('Category')
+axs[1, 0].set_ylabel('Value')
+
+# Scatter plot
+scatter_x = np.random.rand(50)
+scatter_y = np.random.rand(50)
+colors = np.random.rand(50)
+sizes = 500 * np.random.rand(50)
+axs[1, 1].scatter(scatter_x, scatter_y, c=colors, s=sizes, alpha=0.5, cmap='viridis')
+axs[1, 1].set_title('Scatter Plot')
+axs[1, 1].set_xlabel('x')
+axs[1, 1].set_ylabel('y')
+
+# Adjust layout
+plt.tight_layout()
+
+# Show the plot
+plt.show()</code></pre>
+                    
+                    <h3>Customizing Plots</h3>
+                    <p>Matplotlib provides many options for customizing plots.</p>
+                    
+                    <h4>Colors and Styles</h4>
+                    <pre><code>import matplotlib.pyplot as plt
+import numpy as np
+
+# Create data
+x = np.linspace(0, 10, 100)
+y = np.sin(x)
+
+# Available styles
+print(plt.style.available)
+
+# Set style
+plt.style.use('seaborn-darkgrid')
+
+# Create a figure and axis
+plt.figure(figsize=(8, 4))
+
+# Plot with custom colors
+plt.plot(x, y, color='#FF5733', linewidth=2)
+
+# Add labels and title
+plt.xlabel('x', fontsize=12)
+plt.ylabel('sin(x)', fontsize=12)
+plt.title('Customized Plot', fontsize=14, fontweight='bold')
+
+# Customize ticks
+plt.xticks(fontsize=10)
+plt.yticks(fontsize=10)
+
+# Add grid with custom properties
+plt.grid(True, linestyle='--', alpha=0.7)
+
+# Show the plot
+plt.show()</code></pre>
+                    
+                    <h4>Adding Text and Annotations</h4>
+                    <pre><code>import matplotlib.pyplot as plt
+import numpy as np
+
+# Create data
+x = np.linspace(0, 10, 100)
+y = np.sin(x)
+
+# Create a figure and axis
+plt.figure(figsize=(8, 4))
+
+# Plot data
+plt.plot(x, y)
+
+# Add text
+plt.text(4, 0.8, 'sin(x) function', fontsize=12, color='blue')
+
+# Add annotation with arrow
+plt.annotate('Maximum', xy=(np.pi/2, 1), xytext=(np.pi/2 + 1, 0.8),
+             arrowprops=dict(facecolor='black', shrink=0.05))
+
+# Add labels and title
+plt.xlabel('x')
+plt.ylabel('sin(x)')
+plt.title('Text and Annotations')
+
+# Show the plot
+plt.show()</code></pre>
+                    
+                    <h4>Customizing Legends</h4>
+                    <pre><code>import matplotlib.pyplot as plt
+import numpy as np
+
+# Create data
+x = np.linspace(0, 10, 100)
+y1 = np.sin(x)
+y2 = np.cos(x)
+
+# Create a figure and axis
+plt.figure(figsize=(8, 4))
+
+# Plot data
+plt.plot(x, y1, label='sin(x)')
+plt.plot(x, y2, label='cos(x)')
+
+# Add labels and title
+plt.xlabel('x')
+plt.ylabel('y')
+plt.title('Customized Legend')
+
+# Add legend with custom properties
+plt.legend(loc='lower left', fontsize=12, frameon=True, facecolor='lightgray', edgecolor='black')
+
+# Show the plot
+plt.show()</code></pre>
+                    
+                    <h3>Saving Plots</h3>
+                    <p>Matplotlib allows you to save plots in various formats.</p>
+                    <pre><code>import matplotlib.pyplot as plt
+import numpy as np
+
+# Create data
+x = np.linspace(0, 10, 100)
+y = np.sin(x)
+
+# Create a figure and axis
+plt.figure(figsize=(8, 4))
+
+# Plot data
+plt.plot(x, y)
+
+# Add labels and title
+plt.xlabel('x')
+plt.ylabel('sin(x)')
+plt.title('Saving Plots')
+
+# Save the plot in different formats
+plt.savefig('plot.png', dpi=300, bbox_inches='tight')  # PNG format
+plt.savefig('plot.pdf', bbox_inches='tight')  # PDF format
+plt.savefig('plot.svg', bbox_inches='tight')  # SVG format
+
+# Show the plot
+plt.show()</code></pre>
+                    
+                    <h3>3D Plotting</h3>
+                    <p>Matplotlib also supports 3D plotting through the mplot3d toolkit.</p>
+                    <pre><code>import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d import Axes3D
+import numpy as np
+
+# Create data
+x = np.linspace(-5, 5, 50)
+y = np.linspace(-5, 5, 50)
+X, Y = np.meshgrid(x, y)
+Z = np.sin(np.sqrt(X**2 + Y**2))
+
+# Create a figure and 3D axis
+fig = plt.figure(figsize=(10, 8))
+ax = fig.add_subplot(111, projection='3d')
+
+# Create a surface plot
+surf = ax.plot_surface(X, Y, Z, cmap='viridis', edgecolor='none')
+
+# Add labels and title
+ax.set_xlabel('X')
+ax.set_ylabel('Y')
+ax.set_zlabel('Z')
+ax.set_title('3D Surface Plot')
+
+# Add colorbar
+fig.colorbar(surf, ax=ax, shrink=0.5, aspect=5)
+
+# Show the plot
+plt.show()</code></pre>
+                    
+                    <h3>Interactive Plotting</h3>
+                    <p>Matplotlib can be used in interactive mode, which is useful for exploratory data analysis.</p>
+                    <pre><code>import matplotlib.pyplot as plt
+import numpy as np
+
+# Turn on interactive mode
+plt.ion()
+
+# Create data
+x = np.linspace(0, 10, 100)
+y = np.sin(x)
+
+# Create a figure and axis
+fig, ax = plt.subplots()
+line, = ax.plot(x, y)
+
+# Add labels and title
+ax.set_xlabel('x')
+ax.set_ylabel('sin(x)')
+ax.set_title('Interactive Plot')
+
+# Update the plot
+for i in range(100):
+    line.set_ydata(np.sin(x + i/10))
+    fig.canvas.draw()
+    fig.canvas.flush_events()
+    plt.pause(0.1)
+
+# Turn off interactive mode
+plt.ioff()
+plt.show()</code></pre>
+                    
+                    <h3>Integration with Pandas</h3>
+                    <p>Matplotlib integrates well with Pandas, making it easy to plot data from DataFrames.</p>
+                    <pre><code>import matplotlib.pyplot as plt
+import pandas as pd
+import numpy as np
+
+# Create a DataFrame
+np.random.seed(42)
+df = pd.DataFrame({
+    'A': np.random.randn(100).cumsum(),
+    'B': np.random.randn(100).cumsum(),
+    'C': np.random.randn(100).cumsum(),
+    'D': np.random.randn(100).cumsum()
+})
+
+# Plot using Pandas
+df.plot(figsize=(10, 6))
+plt.title('Line Plot from DataFrame')
+plt.xlabel('Index')
+plt.ylabel('Value')
+plt.grid(True)
+plt.show()
+
+# Bar plot
+df.iloc[::10].plot.bar(figsize=(10, 6))
+plt.title('Bar Plot from DataFrame')
+plt.xlabel('Index')
+plt.ylabel('Value')
+plt.show()
+
+# Histogram
+df.plot.hist(bins=20, alpha=0.5, figsize=(10, 6))
+plt.title('Histogram from DataFrame')
+plt.xlabel('Value')
+plt.ylabel('Frequency')
+plt.show()
+
+# Scatter plot
+df.plot.scatter(x='A', y='B', c='C', cmap='viridis', s=df['D'].abs()*100, alpha=0.5, figsize=(10, 6))
+plt.title('Scatter Plot from DataFrame')
+plt.show()</code></pre>
+                    
+                    <h3>Best Practices for Data Visualization</h3>
+                    <p>Here are some best practices to follow when creating visualizations:</p>
+                    <ul>
+                        <li>Keep it simple: Avoid cluttering your plots with unnecessary elements</li>
+                        <li>Choose appropriate plot types for your data</li>
+                        <li>Use clear and descriptive titles, labels, and legends</li>
+                        <li>Use color effectively, but be mindful of color blindness</li>
+                        <li>Ensure text is readable (appropriate font sizes and styles)</li>
+                        <li>Include units of measurement when applicable</li>
+                        <li>Use consistent styling across related plots</li>
+                        <li>Consider your audience when designing visualizations</li>
+                    </ul>
+                    
+                    <p>Try experimenting with Matplotlib in the code playground below!</p>
+                </div>
+
+                <div class="quiz-container">
+                    <h3>Quick Quiz</h3>
+                    <div class="quiz-question">
+                        <p>Which function would you use to create a scatter plot in Matplotlib?</p>
+                        <div class="quiz-options">
+                            <div class="quiz-option-wrapper">
+                                <button class="quiz-option-button" onclick="this.classList.add('selected', 'incorrect'); document.getElementById('quiz-feedback').innerHTML = 'Incorrect. plt.plot() is used to create line plots.'; document.getElementById('quiz-feedback').className = 'quiz-feedback incorrect'; document.getElementById('quiz-next').disabled = false;">plt.plot()</button>
+                            </div>
+                            <div class="quiz-option-wrapper">
+                                <button class="quiz-option-button" onclick="this.classList.add('selected', 'correct'); document.getElementById('quiz-feedback').innerHTML = 'Correct! plt.scatter() is used to create scatter plots.'; document.getElementById('quiz-feedback').className = 'quiz-feedback correct'; document.getElementById('quiz-next').disabled = false;">plt.scatter()</button>
+                            </div>
+                            <div class="quiz-option-wrapper">
+                                <button class="quiz-option-button" onclick="this.classList.add('selected', 'incorrect'); document.getElementById('quiz-feedback').innerHTML = 'Incorrect. plt.bar() is used to create bar plots.'; document.getElementById('quiz-feedback').className = 'quiz-feedback incorrect'; document.getElementById('quiz-next').disabled = false;">plt.bar()</button>
+                            </div>
+                            <div class="quiz-option-wrapper">
+                                <button class="quiz-option-button" onclick="this.classList.add('selected', 'incorrect'); document.getElementById('quiz-feedback').innerHTML = 'Incorrect. plt.hist() is used to create histograms.'; document.getElementById('quiz-feedback').className = 'quiz-feedback incorrect'; document.getElementById('quiz-next').disabled = false;">plt.hist()</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="quiz-feedback" class="quiz-feedback"></div>
+                    <div class="quiz-controls">
+                        <a href="index.html" class="btn btn-primary" id="quiz-next" disabled>Finish Course</a>
+                    </div>
+                </div>
+
+                <div class="code-playground">
+                    <div class="code-header">
+                        <h3>Code Playground</h3>
+                        <div class="code-controls">
+                            <button class="btn btn-secondary" id="reset-code">Reset</button>
+                            <button class="btn btn-primary" id="run-code">Run Code</button>
+                        </div>
+                    </div>
+                    <textarea class="code-editor" id="code-editor">import matplotlib.pyplot as plt
+import numpy as np
+
+# Create data
+x = np.linspace(0, 10, 100)
+y1 = np.sin(x)
+y2 = np.cos(x)
+
+# Create a figure and axis
+plt.figure(figsize=(10, 6))
+
+# Plot data
+plt.plot(x, y1, label='sin(x)', color='blue', linewidth=2)
+plt.plot(x, y2, label='cos(x)', color='red', linewidth=2, linestyle='--')
+
+# Add labels and title
+plt.xlabel('x', fontsize=12)
+plt.ylabel('y', fontsize=12)
+plt.title('Sine and Cosine Waves', fontsize=14)
+
+# Add grid
+plt.grid(True, linestyle=':', alpha=0.7)
+
+# Add legend
+plt.legend(fontsize=12)
+
+# Display the plot
+plt.tight_layout()
+plt.show()
+
+# Note: In this environment, plt.show() may not display the plot visually,
+# but the code is correct and would work in a standard Python environment.</textarea>
+                    <div class="code-output" id="code-output">
+                        <p class="output-placeholder">Code output will appear here...</p>
+                    </div>
+                </div>
+
+                <div class="navigation-controls">
+                    <a href="numpy-intro.html" class="btn btn-secondary">Previous Lesson</a>
+                    <a href="index.html" class="btn btn-primary">Finish Course</a>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 PythonLearn. Created for educational purposes.</p>
+        </div>
+    </footer>
+</body>
+</html>
