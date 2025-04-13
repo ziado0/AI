@@ -1,121 +1,198 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Python Learning App - Data Structures</title>
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Fira+Code:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/pyodide/v0.23.4/full/pyodide.js"></script>
-    <script src="js/app.js"></script>
-</head>
-<body>
+    <script src="app.js"></script>
+  </head>
+  <body>
     <header>
-        <div class="container header-content">
-            <div class="logo">
-                <h1>Python<span>Learn</span></h1>
-            </div>
-            <nav>
-                <ul>
-                    <li><a href="index.html">Dashboard</a></li>
-                    <li><a href="python-variables.html" class="active">Python Basics</a></li>
-                    <li><a href="pandas-intro.html">Pandas</a></li>
-                    <li><a href="numpy-intro.html">NumPy</a></li>
-                    <li><a href="matplotlib-intro.html">Matplotlib</a></li>
-                </ul>
-            </nav>
+      <div class="container header-content">
+        <div class="logo">
+          <h1>Python<span>Learn</span></h1>
         </div>
+        <nav>
+          <ul>
+            <li><a href="index.html">Dashboard</a></li>
+            <li>
+              <a href="python-variables.html" class="active">Python Basics</a>
+            </li>
+            <li><a href="pandas-intro.html">Pandas</a></li>
+            <li><a href="numpy-intro.html">NumPy</a></li>
+            <li><a href="matplotlib-intro.html">Matplotlib</a></li>
+          </ul>
+        </nav>
+      </div>
     </header>
 
     <main class="container">
-        <div class="dashboard">
-            <aside class="sidebar">
-                <div class="progress-container">
-                    <h2>Your Progress</h2>
-                    <div class="progress-stats">
-                        <span>50% Complete</span>
-                        <span>4/8 Lessons</span>
-                    </div>
-                    <div class="progress-bar">
-                        <div class="progress-fill" style="--progress-percent: 50%"></div>
-                    </div>
-                    <div class="chart-container">
-                        <canvas id="progressChart"></canvas>
-                    </div>
-                </div>
+      <div class="dashboard">
+        <aside class="sidebar">
+          <div class="progress-container">
+            <h2>Your Progress</h2>
+            <div class="progress-stats">
+              <span>50% Complete</span>
+              <span>4/8 Lessons</span>
+            </div>
+            <div class="progress-bar">
+              <div class="progress-fill" style="--progress-percent: 50%"></div>
+            </div>
+            <div class="chart-container">
+              <canvas id="progressChart"></canvas>
+            </div>
+          </div>
 
-                <div class="topics-container">
-                    <h2>Learning Path</h2>
-                    <ul class="topics-list">
-                        <li class="topic-item">
-                            <a href="index.html" style="text-decoration: none; color: inherit; display: block; width: 100%;">
-                                <span>Introduction to Python</span>
-                                <span class="status completed">Completed</span>
-                            </a>
-                        </li>
-                        <li class="topic-item">
-                            <a href="python-variables.html" style="text-decoration: none; color: inherit; display: block; width: 100%;">
-                                <span>Variables & Data Types</span>
-                                <span class="status completed">Completed</span>
-                            </a>
-                        </li>
-                        <li class="topic-item">
-                            <a href="python-control-flow.html" style="text-decoration: none; color: inherit; display: block; width: 100%;">
-                                <span>Control Flow</span>
-                                <span class="status completed">Completed</span>
-                            </a>
-                        </li>
-                        <li class="topic-item">
-                            <a href="python-functions.html" style="text-decoration: none; color: inherit; display: block; width: 100%;">
-                                <span>Functions</span>
-                                <span class="status completed">Completed</span>
-                            </a>
-                        </li>
-                        <li class="topic-item active">
-                            <a href="python-data-structures.html" style="text-decoration: none; color: inherit; display: block; width: 100%;">
-                                <span>Data Structures</span>
-                                <span class="status available">Available</span>
-                            </a>
-                        </li>
-                        <li class="topic-item">
-                            <a href="pandas-intro.html" style="text-decoration: none; color: inherit; display: block; width: 100%;">
-                                <span>Introduction to Pandas</span>
-                                <span class="status available">Available</span>
-                            </a>
-                        </li>
-                        <li class="topic-item">
-                            <a href="numpy-intro.html" style="text-decoration: none; color: inherit; display: block; width: 100%;">
-                                <span>Introduction to NumPy</span>
-                                <span class="status available">Available</span>
-                            </a>
-                        </li>
-                        <li class="topic-item">
-                            <a href="matplotlib-intro.html" style="text-decoration: none; color: inherit; display: block; width: 100%;">
-                                <span>Introduction to Matplotlib</span>
-                                <span class="status available">Available</span>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </aside>
+          <div class="topics-container">
+            <h2>Learning Path</h2>
+            <ul class="topics-list">
+              <li class="topic-item">
+                <a
+                  href="index.html"
+                  style="
+                    text-decoration: none;
+                    color: inherit;
+                    display: block;
+                    width: 100%;
+                  "
+                >
+                  <span>Introduction to Python</span>
+                  <span class="status completed">Completed</span>
+                </a>
+              </li>
+              <li class="topic-item">
+                <a
+                  href="python-variables.html"
+                  style="
+                    text-decoration: none;
+                    color: inherit;
+                    display: block;
+                    width: 100%;
+                  "
+                >
+                  <span>Variables & Data Types</span>
+                  <span class="status completed">Completed</span>
+                </a>
+              </li>
+              <li class="topic-item">
+                <a
+                  href="python-control-flow.html"
+                  style="
+                    text-decoration: none;
+                    color: inherit;
+                    display: block;
+                    width: 100%;
+                  "
+                >
+                  <span>Control Flow</span>
+                  <span class="status completed">Completed</span>
+                </a>
+              </li>
+              <li class="topic-item">
+                <a
+                  href="python-functions.html"
+                  style="
+                    text-decoration: none;
+                    color: inherit;
+                    display: block;
+                    width: 100%;
+                  "
+                >
+                  <span>Functions</span>
+                  <span class="status completed">Completed</span>
+                </a>
+              </li>
+              <li class="topic-item active">
+                <a
+                  href="python-data-structures.html"
+                  style="
+                    text-decoration: none;
+                    color: inherit;
+                    display: block;
+                    width: 100%;
+                  "
+                >
+                  <span>Data Structures</span>
+                  <span class="status available">Available</span>
+                </a>
+              </li>
+              <li class="topic-item">
+                <a
+                  href="pandas-intro.html"
+                  style="
+                    text-decoration: none;
+                    color: inherit;
+                    display: block;
+                    width: 100%;
+                  "
+                >
+                  <span>Introduction to Pandas</span>
+                  <span class="status available">Available</span>
+                </a>
+              </li>
+              <li class="topic-item">
+                <a
+                  href="numpy-intro.html"
+                  style="
+                    text-decoration: none;
+                    color: inherit;
+                    display: block;
+                    width: 100%;
+                  "
+                >
+                  <span>Introduction to NumPy</span>
+                  <span class="status available">Available</span>
+                </a>
+              </li>
+              <li class="topic-item">
+                <a
+                  href="matplotlib-intro.html"
+                  style="
+                    text-decoration: none;
+                    color: inherit;
+                    display: block;
+                    width: 100%;
+                  "
+                >
+                  <span>Introduction to Matplotlib</span>
+                  <span class="status available">Available</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </aside>
 
-            <section class="content-area">
-                <div class="content-header">
-                    <h2>Data Structures</h2>
-                    <div class="breadcrumb">Python Basics > Data Structures</div>
-                </div>
+        <section class="content-area">
+          <div class="content-header">
+            <h2>Data Structures</h2>
+            <div class="breadcrumb">Python Basics > Data Structures</div>
+          </div>
 
-                <div class="lesson-content">
-                    <p>Data structures are containers that organize and store data in specific formats. Python provides several built-in data structures that are essential for efficient programming. In this lesson, we'll explore the most commonly used data structures in Python.</p>
-                    
-                    <h3>Lists</h3>
-                    <p>Lists are ordered, mutable (changeable) collections of items. They can contain items of different types.</p>
-                    
-                    <h4>Creating Lists</h4>
-                    <pre><code># Empty list
+          <div class="lesson-content">
+            <p>
+              Data structures are containers that organize and store data in
+              specific formats. Python provides several built-in data structures
+              that are essential for efficient programming. In this lesson,
+              we'll explore the most commonly used data structures in Python.
+            </p>
+
+            <h3>Lists</h3>
+            <p>
+              Lists are ordered, mutable (changeable) collections of items. They
+              can contain items of different types.
+            </p>
+
+            <h4>Creating Lists</h4>
+            <pre><code># Empty list
 empty_list = []
 
 # List with items
@@ -126,9 +203,9 @@ mixed = [1, "hello", 3.14, True]
 
 # List using the list() constructor
 numbers = list(range(1, 6))  # [1, 2, 3, 4, 5]</code></pre>
-                    
-                    <h4>Accessing List Items</h4>
-                    <pre><code>fruits = ["apple", "banana", "cherry"]
+
+            <h4>Accessing List Items</h4>
+            <pre><code>fruits = ["apple", "banana", "cherry"]
 
 # Indexing (0-based)
 print(fruits[0])  # "apple"
@@ -143,9 +220,9 @@ print(fruits[-2])  # "banana"
 print(fruits[0:2])  # ["apple", "banana"]
 print(fruits[:2])   # ["apple", "banana"]
 print(fruits[1:])   # ["banana", "cherry"]</code></pre>
-                    
-                    <h4>Modifying Lists</h4>
-                    <pre><code>fruits = ["apple", "banana", "cherry"]
+
+            <h4>Modifying Lists</h4>
+            <pre><code>fruits = ["apple", "banana", "cherry"]
 
 # Change an item
 fruits[1] = "blueberry"
@@ -173,9 +250,9 @@ print(fruits)  # ["apple", "cherry"]
 # Clear the list
 fruits.clear()
 print(fruits)  # []</code></pre>
-                    
-                    <h4>List Operations</h4>
-                    <pre><code># Concatenation
+
+            <h4>List Operations</h4>
+            <pre><code># Concatenation
 list1 = [1, 2, 3]
 list2 = [4, 5, 6]
 combined = list1 + list2
@@ -208,12 +285,15 @@ print(numbers)  # [1, 1, 2, 3, 4, 5, 9]
 # Reversing
 numbers.reverse()
 print(numbers)  # [9, 5, 4, 3, 2, 1, 1]</code></pre>
-                    
-                    <h3>Tuples</h3>
-                    <p>Tuples are ordered, immutable (unchangeable) collections of items. They are similar to lists but cannot be modified after creation.</p>
-                    
-                    <h4>Creating Tuples</h4>
-                    <pre><code># Empty tuple
+
+            <h3>Tuples</h3>
+            <p>
+              Tuples are ordered, immutable (unchangeable) collections of items.
+              They are similar to lists but cannot be modified after creation.
+            </p>
+
+            <h4>Creating Tuples</h4>
+            <pre><code># Empty tuple
 empty_tuple = ()
 
 # Tuple with items
@@ -227,9 +307,9 @@ mixed = (1, "hello", 3.14, True)
 
 # Tuple using the tuple() constructor
 numbers = tuple(range(1, 6))  # (1, 2, 3, 4, 5)</code></pre>
-                    
-                    <h4>Accessing Tuple Items</h4>
-                    <pre><code>fruits = ("apple", "banana", "cherry")
+
+            <h4>Accessing Tuple Items</h4>
+            <pre><code>fruits = ("apple", "banana", "cherry")
 
 # Indexing (0-based)
 print(fruits[0])  # "apple"
@@ -244,9 +324,9 @@ print(fruits[-2])  # "banana"
 print(fruits[0:2])  # ("apple", "banana")
 print(fruits[:2])   # ("apple", "banana")
 print(fruits[1:])   # ("banana", "cherry")</code></pre>
-                    
-                    <h4>Tuple Operations</h4>
-                    <pre><code># Concatenation
+
+            <h4>Tuple Operations</h4>
+            <pre><code># Concatenation
 tuple1 = (1, 2, 3)
 tuple2 = (4, 5, 6)
 combined = tuple1 + tuple2
@@ -270,20 +350,24 @@ for item in tuple1:
 # Unpacking
 x, y, z = tuple1
 print(x, y, z)  # 1 2 3</code></pre>
-                    
-                    <h4>Why Use Tuples?</h4>
-                    <ul>
-                        <li>Tuples are faster than lists</li>
-                        <li>Tuples protect data from accidental modification</li>
-                        <li>Tuples can be used as keys in dictionaries (lists cannot)</li>
-                        <li>Tuples are used for multiple return values from functions</li>
-                    </ul>
-                    
-                    <h3>Dictionaries</h3>
-                    <p>Dictionaries are unordered, mutable collections of key-value pairs. They are optimized for retrieving data when you know the key.</p>
-                    
-                    <h4>Creating Dictionaries</h4>
-                    <pre><code># Empty dictionary
+
+            <h4>Why Use Tuples?</h4>
+            <ul>
+              <li>Tuples are faster than lists</li>
+              <li>Tuples protect data from accidental modification</li>
+              <li>Tuples can be used as keys in dictionaries (lists cannot)</li>
+              <li>Tuples are used for multiple return values from functions</li>
+            </ul>
+
+            <h3>Dictionaries</h3>
+            <p>
+              Dictionaries are unordered, mutable collections of key-value
+              pairs. They are optimized for retrieving data when you know the
+              key.
+            </p>
+
+            <h4>Creating Dictionaries</h4>
+            <pre><code># Empty dictionary
 empty_dict = {}
 
 # Dictionary with items
@@ -299,9 +383,9 @@ person2 = dict(name="Bob", age=25, city="London")
 # Dictionary from a list of tuples
 items = [("name", "Charlie"), ("age", 35), ("city", "Paris")]
 person3 = dict(items)</code></pre>
-                    
-                    <h4>Accessing Dictionary Items</h4>
-                    <pre><code>person = {
+
+            <h4>Accessing Dictionary Items</h4>
+            <pre><code>person = {
     "name": "Alice",
     "age": 30,
     "city": "New York"
@@ -315,9 +399,9 @@ print(person["age"])   # 30
 print(person.get("name"))  # "Alice"
 print(person.get("email"))  # None
 print(person.get("email", "Not found"))  # "Not found" (default value)</code></pre>
-                    
-                    <h4>Modifying Dictionaries</h4>
-                    <pre><code>person = {
+
+            <h4>Modifying Dictionaries</h4>
+            <pre><code>person = {
     "name": "Alice",
     "age": 30,
     "city": "New York"
@@ -341,9 +425,9 @@ print(person)  # {'name': 'Alice', 'age': 31}
 # Clear the dictionary
 person.clear()
 print(person)  # {}</code></pre>
-                    
-                    <h4>Dictionary Operations</h4>
-                    <pre><code>person = {
+
+            <h4>Dictionary Operations</h4>
+            <pre><code>person = {
     "name": "Alice",
     "age": 30,
     "city": "New York"
@@ -375,12 +459,15 @@ for key in person:
 # Dictionary comprehension
 squares = {x: x**2 for x in range(1, 6)}
 print(squares)  # {1: 1, 2: 4, 3: 9, 4: 16, 5: 25}</code></pre>
-                    
-                    <h3>Sets</h3>
-                    <p>Sets are unordered collections of unique items. They are useful for membership testing and eliminating duplicate entries.</p>
-                    
-                    <h4>Creating Sets</h4>
-                    <pre><code># Empty set (note: {} creates an empty dictionary, not a set)
+
+            <h3>Sets</h3>
+            <p>
+              Sets are unordered collections of unique items. They are useful
+              for membership testing and eliminating duplicate entries.
+            </p>
+
+            <h4>Creating Sets</h4>
+            <pre><code># Empty set (note: {} creates an empty dictionary, not a set)
 empty_set = set()
 
 # Set with items
@@ -389,9 +476,9 @@ fruits = {"apple", "banana", "cherry"}
 # Set from a list (removes duplicates)
 numbers = set([1, 2, 2, 3, 3, 3, 4, 5])
 print(numbers)  # {1, 2, 3, 4, 5}</code></pre>
-                    
-                    <h4>Set Operations</h4>
-                    <pre><code># Add and remove items
+
+            <h4>Set Operations</h4>
+            <pre><code># Add and remove items
 fruits = {"apple", "banana", "cherry"}
 fruits.add("orange")
 print(fruits)  # {'apple', 'banana', 'cherry', 'orange'}
@@ -409,9 +496,9 @@ print(fruits)  # Set with one item removed
 # Clear the set
 fruits.clear()
 print(fruits)  # set()</code></pre>
-                    
-                    <h4>Mathematical Set Operations</h4>
-                    <pre><code>set1 = {1, 2, 3, 4, 5}
+
+            <h4>Mathematical Set Operations</h4>
+            <pre><code>set1 = {1, 2, 3, 4, 5}
 set2 = {4, 5, 6, 7, 8}
 
 # Union (all items from both sets, no duplicates)
@@ -434,12 +521,15 @@ print(sym_diff)  # {1, 2, 3, 6, 7, 8}
 set3 = {1, 2}
 print(set3.issubset(set1))  # True (all items in set3 are also in set1)
 print(set1.issuperset(set3))  # True (set1 contains all items from set3)</code></pre>
-                    
-                    <h3>Advanced Data Structures</h3>
-                    
-                    <h4>Collections Module</h4>
-                    <p>The <code>collections</code> module provides specialized container datatypes:</p>
-                    <pre><code>from collections import Counter, defaultdict, namedtuple, deque
+
+            <h3>Advanced Data Structures</h3>
+
+            <h4>Collections Module</h4>
+            <p>
+              The <code>collections</code> module provides specialized container
+              datatypes:
+            </p>
+            <pre><code>from collections import Counter, defaultdict, namedtuple, deque
 
 # Counter: counts occurrences of elements
 words = ["apple", "banana", "apple", "cherry", "apple", "banana"]
@@ -471,74 +561,134 @@ print(queue)  # deque(['mango', 'apple', 'banana', 'cherry', 'orange'])
 print(queue.pop())  # "orange" (remove from the right)
 print(queue.popleft())  # "mango" (remove from the left)
 print(queue)  # deque(['apple', 'banana', 'cherry'])</code></pre>
-                    
-                    <h4>Choosing the Right Data Structure</h4>
-                    <p>Here's a quick guide to help you choose the right data structure:</p>
-                    <ul>
-                        <li><strong>List</strong>: Use when you need an ordered collection that might change</li>
-                        <li><strong>Tuple</strong>: Use when you need an ordered collection that won't change</li>
-                        <li><strong>Dictionary</strong>: Use when you need to associate values with keys for fast lookup</li>
-                        <li><strong>Set</strong>: Use when you need to store unique values and check membership</li>
-                        <li><strong>Counter</strong>: Use when you need to count occurrences of items</li>
-                        <li><strong>defaultdict</strong>: Use when you need a dictionary with default values</li>
-                        <li><strong>namedtuple</strong>: Use when you need a lightweight object type</li>
-                        <li><strong>deque</strong>: Use when you need to add/remove items from both ends efficiently</li>
-                    </ul>
-                    
-                    <p>Try experimenting with different data structures in the code playground below!</p>
-                </div>
 
-                <div class="quiz-container">
-                    <h3>Quick Quiz</h3>
-                    <div class="quiz-question">
-                        <p>Which of the following data structures is mutable (can be changed after creation)?</p>
-                        <div class="quiz-options">
-                            <div class="quiz-option-wrapper">
-                                <button class="quiz-option-button" onclick="this.classList.add('selected', 'incorrect'); document.getElementById('quiz-feedback').innerHTML = 'Incorrect. Tuples are immutable and cannot be changed after creation.'; document.getElementById('quiz-feedback').className = 'quiz-feedback incorrect'; document.getElementById('quiz-next').disabled = false;">Tuple</button>
-                            </div>
-                            <div class="quiz-option-wrapper">
-                                <button class="quiz-option-button" onclick="this.classList.add('selected', 'incorrect'); document.getElementById('quiz-feedback').innerHTML = 'Incorrect. Frozen sets are immutable and cannot be changed after creation.'; document.getElementById('quiz-feedback').className = 'quiz-feedback incorrect'; document.getElementById('quiz-next').disabled = false;">Frozen Set</button>
-                            </div>
-                            <div class="quiz-option-wrapper">
-                                <button class="quiz-option-button" onclick="this.classList.add('selected', 'correct'); document.getElementById('quiz-feedback').innerHTML = 'Correct! Dictionaries are mutable and can be modified after creation.'; document.getElementById('quiz-feedback').className = 'quiz-feedback correct'; document.getElementById('quiz-next').disabled = false;">Dictionary</button>
-                            </div>
-                            <div class="quiz-option-wrapper">
-                                <button class="quiz-option-button" onclick="this.classList.add('selected', 'incorrect'); document.getElementById('quiz-feedback').innerHTML = 'Incorrect. Strings are immutable and cannot be changed after creation.'; document.getElementById('quiz-feedback').className = 'quiz-feedback incorrect'; document.getElementById('quiz-next').disabled = false;">String</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="quiz-feedback" class="quiz-feedback"></div>
-                    <div class="quiz-controls">
-                        <a href="pandas-intro.html" class="btn btn-primary" id="quiz-next" disabled>Next Lesson</a>
-                    </div>
-                </div>
+            <h4>Choosing the Right Data Structure</h4>
+            <p>
+              Here's a quick guide to help you choose the right data structure:
+            </p>
+            <ul>
+              <li>
+                <strong>List</strong>: Use when you need an ordered collection
+                that might change
+              </li>
+              <li>
+                <strong>Tuple</strong>: Use when you need an ordered collection
+                that won't change
+              </li>
+              <li>
+                <strong>Dictionary</strong>: Use when you need to associate
+                values with keys for fast lookup
+              </li>
+              <li>
+                <strong>Set</strong>: Use when you need to store unique values
+                and check membership
+              </li>
+              <li>
+                <strong>Counter</strong>: Use when you need to count occurrences
+                of items
+              </li>
+              <li>
+                <strong>defaultdict</strong>: Use when you need a dictionary
+                with default values
+              </li>
+              <li>
+                <strong>namedtuple</strong>: Use when you need a lightweight
+                object type
+              </li>
+              <li>
+                <strong>deque</strong>: Use when you need to add/remove items
+                from both ends efficiently
+              </li>
+            </ul>
 
-                <div class="code-playground">
-                    <div class="code-header">
-                        <h3>Code Playground</h3>
-                        <div class="code-controls">
-                            <button class="btn btn-secondary" id="reset-code">Reset</button>
-                            <button class="btn btn-primary" id="run-code">Run Code</button>
-                        </div>
-                    </div>
-                    <textarea class="code-editor" id="code-editor"></textarea>
-                    <div class="code-output" id="code-output">
-                        <p class="output-placeholder">Code output will appear here...</p>
-                    </div>
-                </div>
+            <p>
+              Try experimenting with different data structures in the code
+              playground below!
+            </p>
+          </div>
 
-                <div class="navigation-controls">
-                    <a href="python-functions.html" class="btn btn-secondary">Previous Lesson</a>
-                    <a href="pandas-intro.html" class="btn btn-primary">Next Lesson</a>
+          <div class="quiz-container">
+            <h3>Quick Quiz</h3>
+            <div class="quiz-question">
+              <p>
+                Which of the following data structures is mutable (can be
+                changed after creation)?
+              </p>
+              <div class="quiz-options">
+                <div class="quiz-option-wrapper">
+                  <button
+                    class="quiz-option-button"
+                    onclick="this.classList.add('selected', 'incorrect'); document.getElementById('quiz-feedback').innerHTML = 'Incorrect. Tuples are immutable and cannot be changed after creation.'; document.getElementById('quiz-feedback').className = 'quiz-feedback incorrect'; document.getElementById('quiz-next').disabled = false;"
+                  >
+                    Tuple
+                  </button>
                 </div>
-            </section>
-        </div>
+                <div class="quiz-option-wrapper">
+                  <button
+                    class="quiz-option-button"
+                    onclick="this.classList.add('selected', 'incorrect'); document.getElementById('quiz-feedback').innerHTML = 'Incorrect. Frozen sets are immutable and cannot be changed after creation.'; document.getElementById('quiz-feedback').className = 'quiz-feedback incorrect'; document.getElementById('quiz-next').disabled = false;"
+                  >
+                    Frozen Set
+                  </button>
+                </div>
+                <div class="quiz-option-wrapper">
+                  <button
+                    class="quiz-option-button"
+                    onclick="this.classList.add('selected', 'correct'); document.getElementById('quiz-feedback').innerHTML = 'Correct! Dictionaries are mutable and can be modified after creation.'; document.getElementById('quiz-feedback').className = 'quiz-feedback correct'; document.getElementById('quiz-next').disabled = false;"
+                  >
+                    Dictionary
+                  </button>
+                </div>
+                <div class="quiz-option-wrapper">
+                  <button
+                    class="quiz-option-button"
+                    onclick="this.classList.add('selected', 'incorrect'); document.getElementById('quiz-feedback').innerHTML = 'Incorrect. Strings are immutable and cannot be changed after creation.'; document.getElementById('quiz-feedback').className = 'quiz-feedback incorrect'; document.getElementById('quiz-next').disabled = false;"
+                  >
+                    String
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div id="quiz-feedback" class="quiz-feedback"></div>
+            <div class="quiz-controls">
+              <a
+                href="pandas-intro.html"
+                class="btn btn-primary"
+                id="quiz-next"
+                disabled
+                >Next Lesson</a
+              >
+            </div>
+          </div>
+
+          <div class="code-playground">
+            <div class="code-header">
+              <h3>Code Playground</h3>
+              <div class="code-controls">
+                <button class="btn btn-secondary" id="reset-code">Reset</button>
+                <button class="btn btn-primary" id="run-code">Run Code</button>
+              </div>
+            </div>
+            <textarea class="code-editor" id="code-editor"></textarea>
+            <div class="code-output" id="code-output">
+              <p class="output-placeholder">Code output will appear here...</p>
+            </div>
+          </div>
+
+          <div class="navigation-controls">
+            <a href="python-functions.html" class="btn btn-secondary"
+              >Previous Lesson</a
+            >
+            <a href="pandas-intro.html" class="btn btn-primary">Next Lesson</a>
+          </div>
+        </section>
+      </div>
     </main>
 
     <footer>
-        <div class="container">
-            <p>&copy; 2025 PythonLearn. Created for educational purposes.</p>
-        </div>
+      <div class="container">
+        <p>&copy; 2025 PythonLearn. Created for educational purposes.</p>
+      </div>
     </footer>
-</body>
+  </body>
 </html>

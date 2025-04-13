@@ -1,147 +1,238 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Python Learning App - Introduction to Pandas</title>
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Fira+Code:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/pyodide/v0.23.4/full/pyodide.js"></script>
-    <script src="js/app.js"></script>
-</head>
-<body>
+    <script src="app.js"></script>
+  </head>
+  <body>
     <header>
-        <div class="container header-content">
-            <div class="logo">
-                <h1>Python<span>Learn</span></h1>
-            </div>
-            <nav>
-                <ul>
-                    <li><a href="index.html">Dashboard</a></li>
-                    <li><a href="python-variables.html">Python Basics</a></li>
-                    <li><a href="pandas-intro.html" class="active">Pandas</a></li>
-                    <li><a href="numpy-intro.html">NumPy</a></li>
-                    <li><a href="matplotlib-intro.html">Matplotlib</a></li>
-                </ul>
-            </nav>
+      <div class="container header-content">
+        <div class="logo">
+          <h1>Python<span>Learn</span></h1>
         </div>
+        <nav>
+          <ul>
+            <li><a href="index.html">Dashboard</a></li>
+            <li><a href="python-variables.html">Python Basics</a></li>
+            <li><a href="pandas-intro.html" class="active">Pandas</a></li>
+            <li><a href="numpy-intro.html">NumPy</a></li>
+            <li><a href="matplotlib-intro.html">Matplotlib</a></li>
+          </ul>
+        </nav>
+      </div>
     </header>
 
     <main class="container">
-        <div class="dashboard">
-            <aside class="sidebar">
-                <div class="progress-container">
-                    <h2>Your Progress</h2>
-                    <div class="progress-stats">
-                        <span>62.5% Complete</span>
-                        <span>5/8 Lessons</span>
-                    </div>
-                    <div class="progress-bar">
-                        <div class="progress-fill" style="--progress-percent: 62.5%"></div>
-                    </div>
-                    <div class="chart-container">
-                        <canvas id="progressChart"></canvas>
-                    </div>
-                </div>
+      <div class="dashboard">
+        <aside class="sidebar">
+          <div class="progress-container">
+            <h2>Your Progress</h2>
+            <div class="progress-stats">
+              <span>62.5% Complete</span>
+              <span>5/8 Lessons</span>
+            </div>
+            <div class="progress-bar">
+              <div
+                class="progress-fill"
+                style="--progress-percent: 62.5%"
+              ></div>
+            </div>
+            <div class="chart-container">
+              <canvas id="progressChart"></canvas>
+            </div>
+          </div>
 
-                <div class="topics-container">
-                    <h2>Learning Path</h2>
-                    <ul class="topics-list">
-                        <li class="topic-item">
-                            <a href="index.html" style="text-decoration: none; color: inherit; display: block; width: 100%;">
-                                <span>Introduction to Python</span>
-                                <span class="status completed">Completed</span>
-                            </a>
-                        </li>
-                        <li class="topic-item">
-                            <a href="python-variables.html" style="text-decoration: none; color: inherit; display: block; width: 100%;">
-                                <span>Variables & Data Types</span>
-                                <span class="status completed">Completed</span>
-                            </a>
-                        </li>
-                        <li class="topic-item">
-                            <a href="python-control-flow.html" style="text-decoration: none; color: inherit; display: block; width: 100%;">
-                                <span>Control Flow</span>
-                                <span class="status completed">Completed</span>
-                            </a>
-                        </li>
-                        <li class="topic-item">
-                            <a href="python-functions.html" style="text-decoration: none; color: inherit; display: block; width: 100%;">
-                                <span>Functions</span>
-                                <span class="status completed">Completed</span>
-                            </a>
-                        </li>
-                        <li class="topic-item">
-                            <a href="python-data-structures.html" style="text-decoration: none; color: inherit; display: block; width: 100%;">
-                                <span>Data Structures</span>
-                                <span class="status completed">Completed</span>
-                            </a>
-                        </li>
-                        <li class="topic-item active">
-                            <a href="pandas-intro.html" style="text-decoration: none; color: inherit; display: block; width: 100%;">
-                                <span>Introduction to Pandas</span>
-                                <span class="status available">Available</span>
-                            </a>
-                        </li>
-                        <li class="topic-item">
-                            <a href="numpy-intro.html" style="text-decoration: none; color: inherit; display: block; width: 100%;">
-                                <span>Introduction to NumPy</span>
-                                <span class="status available">Available</span>
-                            </a>
-                        </li>
-                        <li class="topic-item">
-                            <a href="matplotlib-intro.html" style="text-decoration: none; color: inherit; display: block; width: 100%;">
-                                <span>Introduction to Matplotlib</span>
-                                <span class="status available">Available</span>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </aside>
+          <div class="topics-container">
+            <h2>Learning Path</h2>
+            <ul class="topics-list">
+              <li class="topic-item">
+                <a
+                  href="index.html"
+                  style="
+                    text-decoration: none;
+                    color: inherit;
+                    display: block;
+                    width: 100%;
+                  "
+                >
+                  <span>Introduction to Python</span>
+                  <span class="status completed">Completed</span>
+                </a>
+              </li>
+              <li class="topic-item">
+                <a
+                  href="python-variables.html"
+                  style="
+                    text-decoration: none;
+                    color: inherit;
+                    display: block;
+                    width: 100%;
+                  "
+                >
+                  <span>Variables & Data Types</span>
+                  <span class="status completed">Completed</span>
+                </a>
+              </li>
+              <li class="topic-item">
+                <a
+                  href="python-control-flow.html"
+                  style="
+                    text-decoration: none;
+                    color: inherit;
+                    display: block;
+                    width: 100%;
+                  "
+                >
+                  <span>Control Flow</span>
+                  <span class="status completed">Completed</span>
+                </a>
+              </li>
+              <li class="topic-item">
+                <a
+                  href="python-functions.html"
+                  style="
+                    text-decoration: none;
+                    color: inherit;
+                    display: block;
+                    width: 100%;
+                  "
+                >
+                  <span>Functions</span>
+                  <span class="status completed">Completed</span>
+                </a>
+              </li>
+              <li class="topic-item">
+                <a
+                  href="python-data-structures.html"
+                  style="
+                    text-decoration: none;
+                    color: inherit;
+                    display: block;
+                    width: 100%;
+                  "
+                >
+                  <span>Data Structures</span>
+                  <span class="status completed">Completed</span>
+                </a>
+              </li>
+              <li class="topic-item active">
+                <a
+                  href="pandas-intro.html"
+                  style="
+                    text-decoration: none;
+                    color: inherit;
+                    display: block;
+                    width: 100%;
+                  "
+                >
+                  <span>Introduction to Pandas</span>
+                  <span class="status available">Available</span>
+                </a>
+              </li>
+              <li class="topic-item">
+                <a
+                  href="numpy-intro.html"
+                  style="
+                    text-decoration: none;
+                    color: inherit;
+                    display: block;
+                    width: 100%;
+                  "
+                >
+                  <span>Introduction to NumPy</span>
+                  <span class="status available">Available</span>
+                </a>
+              </li>
+              <li class="topic-item">
+                <a
+                  href="matplotlib-intro.html"
+                  style="
+                    text-decoration: none;
+                    color: inherit;
+                    display: block;
+                    width: 100%;
+                  "
+                >
+                  <span>Introduction to Matplotlib</span>
+                  <span class="status available">Available</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </aside>
 
-            <section class="content-area">
-                <div class="content-header">
-                    <h2>Introduction to Pandas</h2>
-                    <div class="breadcrumb">Data Science Libraries > Pandas</div>
-                </div>
+        <section class="content-area">
+          <div class="content-header">
+            <h2>Introduction to Pandas</h2>
+            <div class="breadcrumb">Data Science Libraries > Pandas</div>
+          </div>
 
-                <div class="lesson-content">
-                    <p>Pandas is a powerful Python library for data manipulation and analysis. It provides data structures for efficiently storing and manipulating large datasets, as well as tools for reading and writing data in different formats. In this lesson, we'll explore the basics of Pandas and how to use it for data analysis.</p>
-                    
-                    <h3>What is Pandas?</h3>
-                    <p>Pandas is built on top of NumPy and provides two primary data structures:</p>
-                    <ul>
-                        <li><strong>Series</strong>: A one-dimensional labeled array capable of holding any data type</li>
-                        <li><strong>DataFrame</strong>: A two-dimensional labeled data structure with columns of potentially different types</li>
-                    </ul>
-                    
-                    <p>Pandas is particularly well-suited for:</p>
-                    <ul>
-                        <li>Working with tabular data (like spreadsheets or SQL tables)</li>
-                        <li>Time series data</li>
-                        <li>Any labeled data that needs to be manipulated</li>
-                        <li>Statistical data analysis</li>
-                    </ul>
-                    
-                    <h3>Installing Pandas</h3>
-                    <p>You can install Pandas using pip:</p>
-                    <pre><code>pip install pandas</code></pre>
-                    
-                    <p>Or using conda:</p>
-                    <pre><code>conda install pandas</code></pre>
-                    
-                    <h3>Importing Pandas</h3>
-                    <p>The conventional way to import Pandas is:</p>
-                    <pre><code>import pandas as pd</code></pre>
-                    
-                    <h3>Series</h3>
-                    <p>A Series is a one-dimensional labeled array capable of holding any data type. It's similar to a column in a spreadsheet or a single variable in a dataset.</p>
-                    
-                    <h4>Creating a Series</h4>
-                    <pre><code>import pandas as pd
+          <div class="lesson-content">
+            <p>
+              Pandas is a powerful Python library for data manipulation and
+              analysis. It provides data structures for efficiently storing and
+              manipulating large datasets, as well as tools for reading and
+              writing data in different formats. In this lesson, we'll explore
+              the basics of Pandas and how to use it for data analysis.
+            </p>
+
+            <h3>What is Pandas?</h3>
+            <p>
+              Pandas is built on top of NumPy and provides two primary data
+              structures:
+            </p>
+            <ul>
+              <li>
+                <strong>Series</strong>: A one-dimensional labeled array capable
+                of holding any data type
+              </li>
+              <li>
+                <strong>DataFrame</strong>: A two-dimensional labeled data
+                structure with columns of potentially different types
+              </li>
+            </ul>
+
+            <p>Pandas is particularly well-suited for:</p>
+            <ul>
+              <li>
+                Working with tabular data (like spreadsheets or SQL tables)
+              </li>
+              <li>Time series data</li>
+              <li>Any labeled data that needs to be manipulated</li>
+              <li>Statistical data analysis</li>
+            </ul>
+
+            <h3>Installing Pandas</h3>
+            <p>You can install Pandas using pip:</p>
+            <pre><code>pip install pandas</code></pre>
+
+            <p>Or using conda:</p>
+            <pre><code>conda install pandas</code></pre>
+
+            <h3>Importing Pandas</h3>
+            <p>The conventional way to import Pandas is:</p>
+            <pre><code>import pandas as pd</code></pre>
+
+            <h3>Series</h3>
+            <p>
+              A Series is a one-dimensional labeled array capable of holding any
+              data type. It's similar to a column in a spreadsheet or a single
+              variable in a dataset.
+            </p>
+
+            <h4>Creating a Series</h4>
+            <pre><code>import pandas as pd
 import numpy as np
 
 # From a list
@@ -172,9 +263,9 @@ print(s)
 # b    2
 # c    3
 # dtype: int64</code></pre>
-                    
-                    <h4>Accessing Series Elements</h4>
-                    <pre><code>s = pd.Series([1, 3, 5, 7], index=['a', 'b', 'c', 'd'])
+
+            <h4>Accessing Series Elements</h4>
+            <pre><code>s = pd.Series([1, 3, 5, 7], index=['a', 'b', 'c', 'd'])
 
 # By index label
 print(s['a'])  # 1
@@ -195,12 +286,16 @@ print(s[s > 3])
 # c    5
 # d    7
 # dtype: int64</code></pre>
-                    
-                    <h3>DataFrame</h3>
-                    <p>A DataFrame is a two-dimensional labeled data structure with columns of potentially different types. It's similar to a spreadsheet, SQL table, or a dictionary of Series objects.</p>
-                    
-                    <h4>Creating a DataFrame</h4>
-                    <pre><code>import pandas as pd
+
+            <h3>DataFrame</h3>
+            <p>
+              A DataFrame is a two-dimensional labeled data structure with
+              columns of potentially different types. It's similar to a
+              spreadsheet, SQL table, or a dictionary of Series objects.
+            </p>
+
+            <h4>Creating a DataFrame</h4>
+            <pre><code>import pandas as pd
 import numpy as np
 
 # From a dictionary of lists
@@ -238,9 +333,9 @@ print(df)
 # X -0.264438 -0.363730  0.292977
 # Y  0.144044  1.454274  0.761038
 # Z  0.121675  0.443863  0.333674</code></pre>
-                    
-                    <h4>Accessing DataFrame Elements</h4>
-                    <pre><code>data = {
+
+            <h4>Accessing DataFrame Elements</h4>
+            <pre><code>data = {
     'Name': ['Alice', 'Bob', 'Charlie', 'David'],
     'Age': [25, 30, 35, 40],
     'City': ['New York', 'London', 'Paris', 'Tokyo']
@@ -283,12 +378,15 @@ print(df[df['Age'] > 30])
 #       Name  Age   City
 # 2  Charlie   35  Paris
 # 3    David   40  Tokyo</code></pre>
-                    
-                    <h3>Reading and Writing Data</h3>
-                    <p>Pandas provides functions to read and write data in various formats.</p>
-                    
-                    <h4>Reading Data</h4>
-                    <pre><code># Reading CSV
+
+            <h3>Reading and Writing Data</h3>
+            <p>
+              Pandas provides functions to read and write data in various
+              formats.
+            </p>
+
+            <h4>Reading Data</h4>
+            <pre><code># Reading CSV
 df = pd.read_csv('data.csv')
 
 # Reading Excel
@@ -301,9 +399,9 @@ df = pd.read_json('data.json')
 import sqlite3
 conn = sqlite3.connect('database.db')
 df = pd.read_sql('SELECT * FROM table_name', conn)</code></pre>
-                    
-                    <h4>Writing Data</h4>
-                    <pre><code># Writing to CSV
+
+            <h4>Writing Data</h4>
+            <pre><code># Writing to CSV
 df.to_csv('output.csv', index=False)
 
 # Writing to Excel
@@ -316,12 +414,12 @@ df.to_json('output.json')
 import sqlite3
 conn = sqlite3.connect('database.db')
 df.to_sql('table_name', conn, if_exists='replace', index=False)</code></pre>
-                    
-                    <h3>Data Manipulation</h3>
-                    <p>Pandas provides many functions for manipulating data.</p>
-                    
-                    <h4>Basic Information</h4>
-                    <pre><code>data = {
+
+            <h3>Data Manipulation</h3>
+            <p>Pandas provides many functions for manipulating data.</p>
+
+            <h4>Basic Information</h4>
+            <pre><code>data = {
     'Name': ['Alice', 'Bob', 'Charlie', 'David'],
     'Age': [25, 30, 35, 40],
     'City': ['New York', 'London', 'Paris', 'Tokyo']
@@ -358,9 +456,9 @@ print(df.describe())
 # 50%    32.500000
 # 75%    36.250000
 # max    40.000000</code></pre>
-                    
-                    <h4>Handling Missing Data</h4>
-                    <pre><code>import numpy as np
+
+            <h4>Handling Missing Data</h4>
+            <pre><code>import numpy as np
 
 data = {
     'Name': ['Alice', 'Bob', 'Charlie', np.nan],
@@ -407,9 +505,9 @@ print(df.fillna({'Name': 'Unknown', 'Age': 0, 'City': 'Unknown'}))
 # 1      Bob   0.0    London
 # 2  Charlie  35.0   Unknown
 # 3  Unknown  40.0     Tokyo</code></pre>
-                    
-                    <h4>Filtering and Sorting</h4>
-                    <pre><code>data = {
+
+            <h4>Filtering and Sorting</h4>
+            <pre><code>data = {
     'Name': ['Alice', 'Bob', 'Charlie', 'David'],
     'Age': [25, 30, 35, 40],
     'City': ['New York', 'London', 'Paris', 'Tokyo']
@@ -441,9 +539,9 @@ print(df.sort_values('Name', ascending=False))
 # 2  Charlie   35     Paris
 # 1      Bob   30    London
 # 0    Alice   25  New York</code></pre>
-                    
-                    <h4>Grouping and Aggregation</h4>
-                    <pre><code>data = {
+
+            <h4>Grouping and Aggregation</h4>
+            <pre><code>data = {
     'Name': ['Alice', 'Bob', 'Charlie', 'David', 'Alice', 'Bob'],
     'Department': ['HR', 'IT', 'Finance', 'HR', 'Finance', 'IT'],
     'Salary': [50000, 60000, 70000, 55000, 65000, 75000]
@@ -488,9 +586,9 @@ print(df.groupby('Department').agg({
 # Finance     65000  70000  67500  135000
 # HR          50000  55000  52500  105000
 # IT          60000  75000  67500  135000</code></pre>
-                    
-                    <h4>Merging and Joining</h4>
-                    <pre><code># Create two DataFrames
+
+            <h4>Merging and Joining</h4>
+            <pre><code># Create two DataFrames
 df1 = pd.DataFrame({
     'ID': [1, 2, 3, 4],
     'Name': ['Alice', 'Bob', 'Charlie', 'David']
@@ -548,11 +646,14 @@ print(merged)
 # 2   3  Charlie   70000
 # 3   4    David     NaN
 # 4   5      NaN   80000</code></pre>
-                    
-                    <h3>Data Visualization with Pandas</h3>
-                    <p>Pandas integrates with Matplotlib to provide basic plotting capabilities.</p>
-                    
-                    <pre><code>import pandas as pd
+
+            <h3>Data Visualization with Pandas</h3>
+            <p>
+              Pandas integrates with Matplotlib to provide basic plotting
+              capabilities.
+            </p>
+
+            <pre><code>import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -586,44 +687,74 @@ plt.title('Scatter Plot')
 plt.xlabel('A')
 plt.ylabel('B')
 plt.show()</code></pre>
-                    
-                    <p>Try experimenting with Pandas in the code playground below!</p>
-                </div>
 
-                <div class="quiz-container">
-                    <h3>Quick Quiz</h3>
-                    <div class="quiz-question">
-                        <p>Which of the following is NOT a primary data structure in Pandas?</p>
-                        <div class="quiz-options">
-                            <div class="quiz-option-wrapper">
-                                <button class="quiz-option-button" onclick="this.classList.add('selected', 'incorrect'); document.getElementById('quiz-feedback').innerHTML = 'Incorrect. Series is one of the primary data structures in Pandas.'; document.getElementById('quiz-feedback').className = 'quiz-feedback incorrect'; document.getElementById('quiz-next').disabled = false;">Series</button>
-                            </div>
-                            <div class="quiz-option-wrapper">
-                                <button class="quiz-option-button" onclick="this.classList.add('selected', 'incorrect'); document.getElementById('quiz-feedback').innerHTML = 'Incorrect. DataFrame is one of the primary data structures in Pandas.'; document.getElementById('quiz-feedback').className = 'quiz-feedback incorrect'; document.getElementById('quiz-next').disabled = false;">DataFrame</button>
-                            </div>
-                            <div class="quiz-option-wrapper">
-                                <button class="quiz-option-button" onclick="this.classList.add('selected', 'correct'); document.getElementById('quiz-feedback').innerHTML = 'Correct! Matrix is not a primary data structure in Pandas. The primary data structures are Series and DataFrame.'; document.getElementById('quiz-feedback').className = 'quiz-feedback correct'; document.getElementById('quiz-next').disabled = false;">Matrix</button>
-                            </div>
-                            <div class="quiz-option-wrapper">
-                                <button class="quiz-option-button" onclick="this.classList.add('selected', 'incorrect'); document.getElementById('quiz-feedback').innerHTML = 'Incorrect. While Panel was deprecated in pandas 0.25.0, Series and DataFrame are the two primary data structures in Pandas.'; document.getElementById('quiz-feedback').className = 'quiz-feedback incorrect'; document.getElementById('quiz-next').disabled = false;">Panel</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="quiz-feedback" class="quiz-feedback"></div>
-                    <div class="quiz-controls">
-                        <a href="numpy-intro.html" class="btn btn-primary" id="quiz-next" disabled>Next Lesson</a>
-                    </div>
-                </div>
+            <p>Try experimenting with Pandas in the code playground below!</p>
+          </div>
 
-                <div class="code-playground">
-                    <div class="code-header">
-                        <h3>Code Playground</h3>
-                        <div class="code-controls">
-                            <button class="btn btn-secondary" id="reset-code">Reset</button>
-                            <button class="btn btn-primary" id="run-code">Run Code</button>
-                        </div>
-                    </div>
-                    <textarea class="code-editor" id="code-editor">import pandas as pd
+          <div class="quiz-container">
+            <h3>Quick Quiz</h3>
+            <div class="quiz-question">
+              <p>
+                Which of the following is NOT a primary data structure in
+                Pandas?
+              </p>
+              <div class="quiz-options">
+                <div class="quiz-option-wrapper">
+                  <button
+                    class="quiz-option-button"
+                    onclick="this.classList.add('selected', 'incorrect'); document.getElementById('quiz-feedback').innerHTML = 'Incorrect. Series is one of the primary data structures in Pandas.'; document.getElementById('quiz-feedback').className = 'quiz-feedback incorrect'; document.getElementById('quiz-next').disabled = false;"
+                  >
+                    Series
+                  </button>
+                </div>
+                <div class="quiz-option-wrapper">
+                  <button
+                    class="quiz-option-button"
+                    onclick="this.classList.add('selected', 'incorrect'); document.getElementById('quiz-feedback').innerHTML = 'Incorrect. DataFrame is one of the primary data structures in Pandas.'; document.getElementById('quiz-feedback').className = 'quiz-feedback incorrect'; document.getElementById('quiz-next').disabled = false;"
+                  >
+                    DataFrame
+                  </button>
+                </div>
+                <div class="quiz-option-wrapper">
+                  <button
+                    class="quiz-option-button"
+                    onclick="this.classList.add('selected', 'correct'); document.getElementById('quiz-feedback').innerHTML = 'Correct! Matrix is not a primary data structure in Pandas. The primary data structures are Series and DataFrame.'; document.getElementById('quiz-feedback').className = 'quiz-feedback correct'; document.getElementById('quiz-next').disabled = false;"
+                  >
+                    Matrix
+                  </button>
+                </div>
+                <div class="quiz-option-wrapper">
+                  <button
+                    class="quiz-option-button"
+                    onclick="this.classList.add('selected', 'incorrect'); document.getElementById('quiz-feedback').innerHTML = 'Incorrect. While Panel was deprecated in pandas 0.25.0, Series and DataFrame are the two primary data structures in Pandas.'; document.getElementById('quiz-feedback').className = 'quiz-feedback incorrect'; document.getElementById('quiz-next').disabled = false;"
+                  >
+                    Panel
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div id="quiz-feedback" class="quiz-feedback"></div>
+            <div class="quiz-controls">
+              <a
+                href="numpy-intro.html"
+                class="btn btn-primary"
+                id="quiz-next"
+                disabled
+                >Next Lesson</a
+              >
+            </div>
+          </div>
+
+          <div class="code-playground">
+            <div class="code-header">
+              <h3>Code Playground</h3>
+              <div class="code-controls">
+                <button class="btn btn-secondary" id="reset-code">Reset</button>
+                <button class="btn btn-primary" id="run-code">Run Code</button>
+              </div>
+            </div>
+            <textarea class="code-editor" id="code-editor">
+import pandas as pd
 
 # Create a simple DataFrame
 data = {
@@ -647,24 +778,27 @@ print(df.describe())
 
 # Filtering
 print("\nPeople older than 30:")
-print(df[df['Age'] > 30])</textarea>
-                    <div class="code-output" id="code-output">
-                        <p class="output-placeholder">Code output will appear here...</p>
-                    </div>
-                </div>
+print(df[df['Age'] > 30])</textarea
+            >
+            <div class="code-output" id="code-output">
+              <p class="output-placeholder">Code output will appear here...</p>
+            </div>
+          </div>
 
-                <div class="navigation-controls">
-                    <a href="python-data-structures.html" class="btn btn-secondary">Previous Lesson</a>
-                    <a href="numpy-intro.html" class="btn btn-primary">Next Lesson</a>
-                </div>
-            </section>
-        </div>
+          <div class="navigation-controls">
+            <a href="python-data-structures.html" class="btn btn-secondary"
+              >Previous Lesson</a
+            >
+            <a href="numpy-intro.html" class="btn btn-primary">Next Lesson</a>
+          </div>
+        </section>
+      </div>
     </main>
 
     <footer>
-        <div class="container">
-            <p>&copy; 2025 PythonLearn. Created for educational purposes.</p>
-        </div>
+      <div class="container">
+        <p>&copy; 2025 PythonLearn. Created for educational purposes.</p>
+      </div>
     </footer>
-</body>
+  </body>
 </html>
