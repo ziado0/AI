@@ -1,221 +1,392 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Python Learning App - Introduction to Python</title>
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Fira+Code:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/pyodide/v0.23.4/full/pyodide.js"></script>
-    <script src="js/app.js"></script>
-</head>
-<body>
+    <script src="app.js"></script>
+  </head>
+  <body>
     <header>
-        <div class="container header-content">
-            <div class="logo">
-                <h1>Python<span>Learn</span></h1>
-            </div>
-            <nav>
-                <ul>
-                    <li><a href="index.html" class="active">Dashboard</a></li>
-                    <li><a href="python-variables.html">Python Basics</a></li>
-                    <li><a href="pandas-intro.html">Pandas</a></li>
-                    <li><a href="numpy-intro.html">NumPy</a></li>
-                    <li><a href="matplotlib-intro.html">Matplotlib</a></li>
-                </ul>
-            </nav>
+      <div class="container header-content">
+        <div class="logo">
+          <h1>Python<span>Learn</span></h1>
         </div>
+        <nav>
+          <ul>
+            <li><a href="index.html" class="active">Dashboard</a></li>
+            <li><a href="python-variables.html">Python Basics</a></li>
+            <li><a href="pandas-intro.html">Pandas</a></li>
+            <li><a href="numpy-intro.html">NumPy</a></li>
+            <li><a href="matplotlib-intro.html">Matplotlib</a></li>
+          </ul>
+        </nav>
+      </div>
     </header>
 
     <main class="container">
-        <div class="dashboard">
-            <aside class="sidebar">
-                <div class="progress-container">
-                    <h2>Your Progress</h2>
-                    <div class="progress-stats">
-                        <span>0% Complete</span>
-                        <span>0/8 Lessons</span>
-                    </div>
-                    <div class="progress-bar">
-                        <div class="progress-fill" style="--progress-percent: 0%"></div>
-                    </div>
-                    <div class="chart-container">
-                        <canvas id="progressChart"></canvas>
-                    </div>
-                </div>
+      <div class="dashboard">
+        <aside class="sidebar">
+          <div class="progress-container">
+            <h2>Your Progress</h2>
+            <div class="progress-stats">
+              <span>0% Complete</span>
+              <span>0/8 Lessons</span>
+            </div>
+            <div class="progress-bar">
+              <div class="progress-fill" style="--progress-percent: 0%"></div>
+            </div>
+            <div class="chart-container">
+              <canvas id="progressChart"></canvas>
+            </div>
+          </div>
 
-                <div class="topics-container">
-                    <h2>Learning Path</h2>
-                    <ul class="topics-list">
-                        <li class="topic-item active">
-                            <a href="index.html" style="text-decoration: none; color: inherit; display: block; width: 100%;">
-                                <span>Introduction to Python</span>
-                                <span class="status available">Available</span>
-                            </a>
-                        </li>
-                        <li class="topic-item">
-                            <a href="python-variables.html" style="text-decoration: none; color: inherit; display: block; width: 100%;">
-                                <span>Variables & Data Types</span>
-                                <span class="status available">Available</span>
-                            </a>
-                        </li>
-                        <li class="topic-item">
-                            <a href="python-control-flow.html" style="text-decoration: none; color: inherit; display: block; width: 100%;">
-                                <span>Control Flow</span>
-                                <span class="status available">Available</span>
-                            </a>
-                        </li>
-                        <li class="topic-item">
-                            <a href="python-functions.html" style="text-decoration: none; color: inherit; display: block; width: 100%;">
-                                <span>Functions</span>
-                                <span class="status available">Available</span>
-                            </a>
-                        </li>
-                        <li class="topic-item">
-                            <a href="python-data-structures.html" style="text-decoration: none; color: inherit; display: block; width: 100%;">
-                                <span>Data Structures</span>
-                                <span class="status available">Available</span>
-                            </a>
-                        </li>
-                        <li class="topic-item">
-                            <a href="pandas-intro.html" style="text-decoration: none; color: inherit; display: block; width: 100%;">
-                                <span>Introduction to Pandas</span>
-                                <span class="status available">Available</span>
-                            </a>
-                        </li>
-                        <li class="topic-item">
-                            <a href="numpy-intro.html" style="text-decoration: none; color: inherit; display: block; width: 100%;">
-                                <span>Introduction to NumPy</span>
-                                <span class="status available">Available</span>
-                            </a>
-                        </li>
-                        <li class="topic-item">
-                            <a href="matplotlib-intro.html" style="text-decoration: none; color: inherit; display: block; width: 100%;">
-                                <span>Introduction to Matplotlib</span>
-                                <span class="status available">Available</span>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </aside>
+          <div class="topics-container">
+            <h2>Learning Path</h2>
+            <ul class="topics-list">
+              <li class="topic-item active">
+                <a
+                  href="index.html"
+                  style="
+                    text-decoration: none;
+                    color: inherit;
+                    display: block;
+                    width: 100%;
+                  "
+                >
+                  <span>Introduction to Python</span>
+                  <span class="status available">Available</span>
+                </a>
+              </li>
+              <li class="topic-item">
+                <a
+                  href="python-variables.html"
+                  style="
+                    text-decoration: none;
+                    color: inherit;
+                    display: block;
+                    width: 100%;
+                  "
+                >
+                  <span>Variables & Data Types</span>
+                  <span class="status available">Available</span>
+                </a>
+              </li>
+              <li class="topic-item">
+                <a
+                  href="python-control-flow.html"
+                  style="
+                    text-decoration: none;
+                    color: inherit;
+                    display: block;
+                    width: 100%;
+                  "
+                >
+                  <span>Control Flow</span>
+                  <span class="status available">Available</span>
+                </a>
+              </li>
+              <li class="topic-item">
+                <a
+                  href="python-functions.html"
+                  style="
+                    text-decoration: none;
+                    color: inherit;
+                    display: block;
+                    width: 100%;
+                  "
+                >
+                  <span>Functions</span>
+                  <span class="status available">Available</span>
+                </a>
+              </li>
+              <li class="topic-item">
+                <a
+                  href="python-data-structures.html"
+                  style="
+                    text-decoration: none;
+                    color: inherit;
+                    display: block;
+                    width: 100%;
+                  "
+                >
+                  <span>Data Structures</span>
+                  <span class="status available">Available</span>
+                </a>
+              </li>
+              <li class="topic-item">
+                <a
+                  href="pandas-intro.html"
+                  style="
+                    text-decoration: none;
+                    color: inherit;
+                    display: block;
+                    width: 100%;
+                  "
+                >
+                  <span>Introduction to Pandas</span>
+                  <span class="status available">Available</span>
+                </a>
+              </li>
+              <li class="topic-item">
+                <a
+                  href="numpy-intro.html"
+                  style="
+                    text-decoration: none;
+                    color: inherit;
+                    display: block;
+                    width: 100%;
+                  "
+                >
+                  <span>Introduction to NumPy</span>
+                  <span class="status available">Available</span>
+                </a>
+              </li>
+              <li class="topic-item">
+                <a
+                  href="matplotlib-intro.html"
+                  style="
+                    text-decoration: none;
+                    color: inherit;
+                    display: block;
+                    width: 100%;
+                  "
+                >
+                  <span>Introduction to Matplotlib</span>
+                  <span class="status available">Available</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </aside>
 
-            <section class="content-area">
-                <div class="content-header">
-                    <h2>Introduction to Python</h2>
-                    <div class="breadcrumb">Python Basics > Introduction</div>
-                </div>
+        <section class="content-area">
+          <div class="content-header">
+            <h2>Introduction to Python</h2>
+            <div class="breadcrumb">Python Basics > Introduction</div>
+          </div>
 
-                <div class="lesson-content">
-                    <p>Welcome to your Python learning journey! Python is a high-level, interpreted programming language known for its readability and simplicity. It's widely used in data science, web development, artificial intelligence, and many other fields.</p>
-                    
-                    <h3>Why Python?</h3>
-                    <p>Python has become one of the most popular programming languages in the world for several reasons:</p>
-                    <ul>
-                        <li><strong>Readability:</strong> Python's syntax is clear and resembles English, making it easier to learn and understand.</li>
-                        <li><strong>Versatility:</strong> Python can be used for web development, data analysis, artificial intelligence, scientific computing, automation, and more.</li>
-                        <li><strong>Large Community:</strong> Python has a vast community of developers who contribute to its libraries and frameworks.</li>
-                        <li><strong>Rich Ecosystem:</strong> Python has thousands of libraries and frameworks that extend its functionality.</li>
-                        <li><strong>Cross-platform:</strong> Python runs on Windows, macOS, Linux, and many other platforms.</li>
-                    </ul>
-                    
-                    <h3>Python Versions</h3>
-                    <p>There are two major Python versions: Python 2 and Python 3. Python 2 reached end-of-life in 2020, so all new projects should use Python 3. In this course, we'll be using Python 3.</p>
-                    
-                    <h3>Python Interpreter</h3>
-                    <p>Python is an interpreted language, which means that Python code is executed line by line by the Python interpreter. This is different from compiled languages like C++ or Java, where the code is first compiled into machine code before execution.</p>
-                    
-                    <h3>Your First Python Program</h3>
-                    <p>Let's start with the classic "Hello, World!" program. In Python, it's just one line of code:</p>
-                    <pre><code>print("Hello, World!")</code></pre>
-                    
-                    <p>The <code>print()</code> function displays the specified message on the screen. In this case, it displays "Hello, World!".</p>
-                    
-                    <h3>Python Syntax</h3>
-                    <p>Python uses indentation to define code blocks. This is different from other languages that use braces <code>{}</code> or keywords like <code>begin</code> and <code>end</code>. For example:</p>
-                    <pre><code>if x > 0:
+          <div class="lesson-content">
+            <p>
+              Welcome to your Python learning journey! Python is a high-level,
+              interpreted programming language known for its readability and
+              simplicity. It's widely used in data science, web development,
+              artificial intelligence, and many other fields.
+            </p>
+
+            <h3>Why Python?</h3>
+            <p>
+              Python has become one of the most popular programming languages in
+              the world for several reasons:
+            </p>
+            <ul>
+              <li>
+                <strong>Readability:</strong> Python's syntax is clear and
+                resembles English, making it easier to learn and understand.
+              </li>
+              <li>
+                <strong>Versatility:</strong> Python can be used for web
+                development, data analysis, artificial intelligence, scientific
+                computing, automation, and more.
+              </li>
+              <li>
+                <strong>Large Community:</strong> Python has a vast community of
+                developers who contribute to its libraries and frameworks.
+              </li>
+              <li>
+                <strong>Rich Ecosystem:</strong> Python has thousands of
+                libraries and frameworks that extend its functionality.
+              </li>
+              <li>
+                <strong>Cross-platform:</strong> Python runs on Windows, macOS,
+                Linux, and many other platforms.
+              </li>
+            </ul>
+
+            <h3>Python Versions</h3>
+            <p>
+              There are two major Python versions: Python 2 and Python 3. Python
+              2 reached end-of-life in 2020, so all new projects should use
+              Python 3. In this course, we'll be using Python 3.
+            </p>
+
+            <h3>Python Interpreter</h3>
+            <p>
+              Python is an interpreted language, which means that Python code is
+              executed line by line by the Python interpreter. This is different
+              from compiled languages like C++ or Java, where the code is first
+              compiled into machine code before execution.
+            </p>
+
+            <h3>Your First Python Program</h3>
+            <p>
+              Let's start with the classic "Hello, World!" program. In Python,
+              it's just one line of code:
+            </p>
+            <pre><code>print("Hello, World!")</code></pre>
+
+            <p>
+              The <code>print()</code> function displays the specified message
+              on the screen. In this case, it displays "Hello, World!".
+            </p>
+
+            <h3>Python Syntax</h3>
+            <p>
+              Python uses indentation to define code blocks. This is different
+              from other languages that use braces <code>{}</code> or keywords
+              like <code>begin</code> and <code>end</code>. For example:
+            </p>
+            <pre><code>if x > 0:
     print("x is positive")
     print("This is still part of the if block")
 print("This is outside the if block")</code></pre>
-                    
-                    <p>In this example, the first two print statements are part of the if block because they are indented. The third print statement is outside the if block because it's not indented.</p>
-                    
-                    <h3>Comments in Python</h3>
-                    <p>Comments are lines of text that are not executed by the interpreter. They are used to explain the code and make it more readable. In Python, comments start with the <code>#</code> symbol:</p>
-                    <pre><code># This is a comment
+
+            <p>
+              In this example, the first two print statements are part of the if
+              block because they are indented. The third print statement is
+              outside the if block because it's not indented.
+            </p>
+
+            <h3>Comments in Python</h3>
+            <p>
+              Comments are lines of text that are not executed by the
+              interpreter. They are used to explain the code and make it more
+              readable. In Python, comments start with the
+              <code>#</code> symbol:
+            </p>
+            <pre><code># This is a comment
 print("Hello, World!")  # This is also a comment</code></pre>
-                    
-                    <h3>Multi-line Statements</h3>
-                    <p>In Python, statements usually end with a newline. However, you can use the backslash <code>\</code> character to continue a statement on the next line:</p>
-                    <pre><code>total = 1 + 2 + 3 + \
+
+            <h3>Multi-line Statements</h3>
+            <p>
+              In Python, statements usually end with a newline. However, you can
+              use the backslash <code>\</code> character to continue a statement
+              on the next line:
+            </p>
+            <pre><code>total = 1 + 2 + 3 + \
        4 + 5 + 6</code></pre>
-                    
-                    <p>You can also use parentheses <code>()</code>, square brackets <code>[]</code>, or curly braces <code>{}</code> to create multi-line statements without using the backslash:</p>
-                    <pre><code>total = (1 + 2 + 3 +
+
+            <p>
+              You can also use parentheses <code>()</code>, square brackets
+              <code>[]</code>, or curly braces <code>{}</code> to create
+              multi-line statements without using the backslash:
+            </p>
+            <pre><code>total = (1 + 2 + 3 +
        4 + 5 + 6)</code></pre>
-                    
-                    <h3>Python Identifiers</h3>
-                    <p>Identifiers are names given to variables, functions, classes, etc. In Python, identifiers can contain letters, digits, and underscores, but they cannot start with a digit. Python is case-sensitive, so <code>myVar</code> and <code>myvar</code> are different identifiers.</p>
-                    
-                    <h3>Python Keywords</h3>
-                    <p>Keywords are reserved words that have special meanings in Python. You cannot use keywords as identifiers. Some examples of Python keywords are <code>if</code>, <code>else</code>, <code>for</code>, <code>while</code>, <code>def</code>, <code>class</code>, etc.</p>
-                    
-                    <p>Try running the "Hello, World!" program in the code playground below!</p>
-                </div>
 
-                <div class="quiz-container">
-                    <h3>Quick Quiz</h3>
-                    <div class="quiz-question">
-                        <p>What function is used to display output in Python?</p>
-                        <div class="quiz-options">
-                            <div class="quiz-option-wrapper">
-                                <button class="quiz-option-button" onclick="this.classList.add('selected', 'correct'); document.getElementById('quiz-feedback').innerHTML = 'Correct! The print() function is used to display output in Python.'; document.getElementById('quiz-feedback').className = 'quiz-feedback correct'; document.getElementById('quiz-next').disabled = false;">print()</button>
-                            </div>
-                            <div class="quiz-option-wrapper">
-                                <button class="quiz-option-button" onclick="this.classList.add('selected', 'incorrect'); document.getElementById('quiz-feedback').innerHTML = 'Incorrect. The correct answer is print().'; document.getElementById('quiz-feedback').className = 'quiz-feedback incorrect'; document.getElementById('quiz-next').disabled = false;">display()</button>
-                            </div>
-                            <div class="quiz-option-wrapper">
-                                <button class="quiz-option-button" onclick="this.classList.add('selected', 'incorrect'); document.getElementById('quiz-feedback').innerHTML = 'Incorrect. The correct answer is print().'; document.getElementById('quiz-feedback').className = 'quiz-feedback incorrect'; document.getElementById('quiz-next').disabled = false;">console.log()</button>
-                            </div>
-                            <div class="quiz-option-wrapper">
-                                <button class="quiz-option-button" onclick="this.classList.add('selected', 'incorrect'); document.getElementById('quiz-feedback').innerHTML = 'Incorrect. The correct answer is print().'; document.getElementById('quiz-feedback').className = 'quiz-feedback incorrect'; document.getElementById('quiz-next').disabled = false;">echo()</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="quiz-feedback" class="quiz-feedback"></div>
-                    <div class="quiz-controls">
-                        <a href="python-variables.html" class="btn btn-primary" id="quiz-next" disabled>Next Lesson</a>
-                    </div>
-                </div>
+            <h3>Python Identifiers</h3>
+            <p>
+              Identifiers are names given to variables, functions, classes, etc.
+              In Python, identifiers can contain letters, digits, and
+              underscores, but they cannot start with a digit. Python is
+              case-sensitive, so <code>myVar</code> and <code>myvar</code> are
+              different identifiers.
+            </p>
 
-                <div class="code-playground">
-                    <div class="code-header">
-                        <h3>Code Playground</h3>
-                        <div class="code-controls">
-                            <button class="btn btn-secondary" id="reset-code">Reset</button>
-                            <button class="btn btn-primary" id="run-code">Run Code</button>
-                        </div>
-                    </div>
-                    <textarea class="code-editor" id="code-editor">print("Hello, World!")</textarea>
-                    <div class="code-output" id="code-output">
-                        <p class="output-placeholder">Code output will appear here...</p>
-                    </div>
-                </div>
+            <h3>Python Keywords</h3>
+            <p>
+              Keywords are reserved words that have special meanings in Python.
+              You cannot use keywords as identifiers. Some examples of Python
+              keywords are <code>if</code>, <code>else</code>, <code>for</code>,
+              <code>while</code>, <code>def</code>, <code>class</code>, etc.
+            </p>
 
-                <div class="navigation-controls">
-                    <button class="btn btn-secondary" disabled>Previous Lesson</button>
-                    <a href="python-variables.html" class="btn btn-primary">Next Lesson</a>
+            <p>
+              Try running the "Hello, World!" program in the code playground
+              below!
+            </p>
+          </div>
+
+          <div class="quiz-container">
+            <h3>Quick Quiz</h3>
+            <div class="quiz-question">
+              <p>What function is used to display output in Python?</p>
+              <div class="quiz-options">
+                <div class="quiz-option-wrapper">
+                  <button
+                    class="quiz-option-button"
+                    onclick="this.classList.add('selected', 'correct'); document.getElementById('quiz-feedback').innerHTML = 'Correct! The print() function is used to display output in Python.'; document.getElementById('quiz-feedback').className = 'quiz-feedback correct'; document.getElementById('quiz-next').disabled = false;"
+                  >
+                    print()
+                  </button>
                 </div>
-            </section>
-        </div>
+                <div class="quiz-option-wrapper">
+                  <button
+                    class="quiz-option-button"
+                    onclick="this.classList.add('selected', 'incorrect'); document.getElementById('quiz-feedback').innerHTML = 'Incorrect. The correct answer is print().'; document.getElementById('quiz-feedback').className = 'quiz-feedback incorrect'; document.getElementById('quiz-next').disabled = false;"
+                  >
+                    display()
+                  </button>
+                </div>
+                <div class="quiz-option-wrapper">
+                  <button
+                    class="quiz-option-button"
+                    onclick="this.classList.add('selected', 'incorrect'); document.getElementById('quiz-feedback').innerHTML = 'Incorrect. The correct answer is print().'; document.getElementById('quiz-feedback').className = 'quiz-feedback incorrect'; document.getElementById('quiz-next').disabled = false;"
+                  >
+                    console.log()
+                  </button>
+                </div>
+                <div class="quiz-option-wrapper">
+                  <button
+                    class="quiz-option-button"
+                    onclick="this.classList.add('selected', 'incorrect'); document.getElementById('quiz-feedback').innerHTML = 'Incorrect. The correct answer is print().'; document.getElementById('quiz-feedback').className = 'quiz-feedback incorrect'; document.getElementById('quiz-next').disabled = false;"
+                  >
+                    echo()
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div id="quiz-feedback" class="quiz-feedback"></div>
+            <div class="quiz-controls">
+              <a
+                href="python-variables.html"
+                class="btn btn-primary"
+                id="quiz-next"
+                disabled
+                >Next Lesson</a
+              >
+            </div>
+          </div>
+
+          <div class="code-playground">
+            <div class="code-header">
+              <h3>Code Playground</h3>
+              <div class="code-controls">
+                <button class="btn btn-secondary" id="reset-code">Reset</button>
+                <button class="btn btn-primary" id="run-code">Run Code</button>
+              </div>
+            </div>
+            <textarea class="code-editor" id="code-editor">
+print("Hello, World!")</textarea
+            >
+            <div class="code-output" id="code-output">
+              <p class="output-placeholder">Code output will appear here...</p>
+            </div>
+          </div>
+
+          <div class="navigation-controls">
+            <button class="btn btn-secondary" disabled>Previous Lesson</button>
+            <a href="python-variables.html" class="btn btn-primary"
+              >Next Lesson</a
+            >
+          </div>
+        </section>
+      </div>
     </main>
 
     <footer>
-        <div class="container">
-            <p>&copy; 2025 PythonLearn. Created for educational purposes.</p>
-        </div>
+      <div class="container">
+        <p>&copy; 2025 PythonLearn. Created for educational purposes.</p>
+      </div>
     </footer>
-</body>
+  </body>
 </html>
